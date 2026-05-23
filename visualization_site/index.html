@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>营销多智能体沙盘</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      .startup-guide {
+        box-sizing: border-box;
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        margin: 0;
+        padding: 28px;
+        background:
+          radial-gradient(circle at 50% 26%, rgba(255, 225, 147, 0.18), transparent 28%),
+          #08111d;
+        color: #edf7f4;
+        font-family: Inter, "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      }
+
+      .startup-guide article {
+        width: min(620px, 100%);
+        border: 1px solid rgba(194, 233, 255, 0.22);
+        border-radius: 8px;
+        padding: clamp(20px, 4vw, 34px);
+        background: rgba(12, 25, 39, 0.84);
+        box-shadow: 0 24px 90px rgba(0, 0, 0, 0.38);
+      }
+
+      .startup-guide h1 {
+        margin: 0 0 12px;
+        color: #fff0c4;
+        font-size: clamp(22px, 4vw, 34px);
+        letter-spacing: 0;
+      }
+
+      .startup-guide p,
+      .startup-guide li {
+        color: #cfe2e2;
+        line-height: 1.58;
+      }
+
+      .startup-guide strong {
+        color: #fff7dc;
+      }
+
+      .startup-guide ol {
+        margin: 18px 0;
+        padding-left: 22px;
+      }
+
+      .startup-guide pre {
+        margin: 10px 0;
+        border: 1px solid rgba(156, 229, 210, 0.2);
+        border-radius: 6px;
+        padding: 12px;
+        overflow-x: auto;
+        background: rgba(3, 9, 18, 0.72);
+        color: #b9f1df;
+        font: 14px/1.48 Consolas, "Cascadia Code", monospace;
+      }
+
+      .startup-guide small {
+        display: block;
+        margin-top: 16px;
+        color: #9eb8bf;
+        line-height: 1.45;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <main class="startup-guide">
+        <article>
+          <h1>沙盘网站需要先启动本地网页服务</h1>
+          <p>
+            如果你是直接双击这个 <strong>index.html</strong> 打开的，Vite 模块和 Three.js 依赖通常不会被正确加载，页面会停在这里。
+          </p>
+          <ol>
+            <li>在项目终端进入 <strong>visualization_site</strong>。</li>
+            <li>第一次运行先安装前端依赖。</li>
+            <li>启动前端服务，再打开终端给出的本地地址。</li>
+          </ol>
+          <pre>cd visualization_site
+npm install
+npm run dev</pre>
+          <p>打开地址通常是 <strong>http://127.0.0.1:5173/</strong>。</p>
+          <small>
+            只看示例回放或课堂数据包时，前端服务就够了。要跑真实模型搜索，还需要本地后端提供 live event 接口。
+          </small>
+        </article>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
