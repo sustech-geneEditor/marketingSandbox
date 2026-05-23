@@ -1,0 +1,564 @@
+{
+  "archiveFormatVersion": 2,
+  "archiveId": "live-mphucf6y-20260523T042224-777912z0000",
+  "createdAt": "2026-05-23T04:22:24.777912+00:00",
+  "errorMessage": "Live event stream ended before run_completed; last event was round_progress.",
+  "eventContractVersion": "marketing-sandbox-web-events/v1",
+  "label": "live-mphucf6y",
+  "playback": {
+    "events": [
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Send the run into the scene.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Live sandbox run started",
+        "id": "live-mphucf6y-0001-run_started",
+        "round": 0,
+        "summary": "The live sandbox run is being translated into web events.",
+        "type": "run_started"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Calling live agents...",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Round 1 is calling model agents",
+        "id": "live-mphucf6y-0002-round_progress",
+        "progress": {
+          "candidateCount": 1,
+          "expectedModelCalls": 4,
+          "note": "Provider-check only verifies a light API path. A real round also needs Decision, Consumer, Feedback, and Critic outputs to pass the sandbox contracts.",
+          "personaCount": 1,
+          "stage": "model_calls"
+        },
+        "round": 1,
+        "summary": "Round 1 has started real model calls. This round expects about 4 provider calls before consumer bubbles, reward, and UCB updates can appear.",
+        "type": "round_progress"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Open the next strategy test.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Round 1 started",
+        "id": "live-mphucf6y-0003-round_started",
+        "proposal": {
+          "candidateCount": 1,
+          "decisionNote": "The initial strategy focuses on a low-commitment trial to overcome the barrier of first-use cost for value-constrained pragmatists. A free sample with no strings attached builds trust and reduces friction.",
+          "nextValidationQuestion": "Does the free sample offer clearly communicate a bounded, low-commitment value that feels worth the trial effort for value-constrained pragmatists, and does it avoid creating a perception of hidden costs or future obligations?"
+        },
+        "round": 1,
+        "summary": "The initial strategy focuses on a low-commitment trial to overcome the barrier of first-use cost for value-constrained pragmatists. A free sample with no strings attached builds trust and reduces friction.",
+        "type": "round_started"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Test Trial value entry.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "family": {
+          "coreBarrier": "First use feels too costly or too committal.",
+          "expectedActionPatterns": [
+            "clear trial offer",
+            "bounded entry value",
+            "first-use friction reduction"
+          ],
+          "failureSignals": [
+            "promotion hides product fit",
+            "repeat reason disappears after trial"
+          ],
+          "guidance": "Use trial access and concrete value without turning every reason into a discount.",
+          "id": "trial_value_entry",
+          "name": "Trial value entry",
+          "note": "Create a bounded first step whose value can be understood.",
+          "selectionReason": "cold start family has no complete observation yet",
+          "state": "cold start"
+        },
+        "headline": "Strategy family selected",
+        "id": "live-mphucf6y-0004-family_selected",
+        "internalSearch": {
+          "generationIntent": "cold_start",
+          "kind": "family_selection",
+          "metricBoundary": "UCB score is an internal family-search score, not a purchase rate or market forecast.",
+          "selectionReason": "cold start family has no complete observation yet",
+          "ucbScore": {
+            "display": "cold start infinity",
+            "value": null
+          }
+        },
+        "round": 1,
+        "summary": "cold start family has no complete observation yet",
+        "type": "family_selected"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Free Sample First Step",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "DecisionAgent proposed a strategy",
+        "id": "live-mphucf6y-0005-strategy_proposed",
+        "proposal": {
+          "decisionNote": "The initial strategy focuses on a low-commitment trial to overcome the barrier of first-use cost for value-constrained pragmatists. A free sample with no strings attached builds trust and reduces friction.",
+          "nextValidationQuestion": "Does the free sample offer clearly communicate a bounded, low-commitment value that feels worth the trial effort for value-constrained pragmatists, and does it avoid creating a perception of hidden costs or future obligations?"
+        },
+        "round": 1,
+        "strategy": {
+          "actions": [
+            {
+              "category": "Promotion",
+              "note": "Offer a free sample of the product (e.g., small size or first month free) with no payment required and no auto-enrollment in a paid plan.",
+              "parameters": {
+                "auto_conversion": "none",
+                "offer_type": "free_sample",
+                "sample_duration": "single_use"
+              },
+              "productClaims": [],
+              "reason": "Directly reduces the first-use cost barrier and lowers commitment anxiety for value-constrained consumers."
+            },
+            {
+              "category": "Channel",
+              "note": "Distribute the free sample via a low-friction digital channel (e.g., website download or in-app trial) and also make it available at retail point of sale for physical products.",
+              "parameters": {
+                "digital_distribution": "direct_download",
+                "physical_availability": "select_retailers"
+              },
+              "productClaims": [],
+              "reason": "Ensures easy access to the trial across touchpoints where target consumers shop, minimizing effort to start."
+            },
+            {
+              "category": "Retention",
+              "note": "After trial, send a single non-intrusive reminder highlighting the value experienced, with a direct purchase link but no recurring nudges.",
+              "parameters": {
+                "frequency_cap": "once",
+                "reminder_content": "value_summary",
+                "reminder_timing": "post_trial_day3"
+              },
+              "productClaims": [],
+              "reason": "Keeps the offer bounded and respectful, avoiding the perception of a hard sell that could repel pragmatists."
+            }
+          ],
+          "familyFit": "The candidate directly addresses the core barrier of perceived high cost or commitment by offering a bounded, free trial that clearly demonstrates value before any purchase.",
+          "familyId": "trial_value_entry",
+          "intent": "Offering a free sample (no payment, no sign-up required) will reduce the perceived risk for value-constrained pragmatists, encouraging them to try the product and experience its value, thus removing the initial adoption barrier.",
+          "name": "Free Sample First Step",
+          "targets": [
+            "Value-constrained pragmatists who are hesitant to pay upfront without proof of value",
+            "Budget-conscious first-time buyers in a normal comparison scenario"
+          ],
+          "tradeoffs": [
+            "Short-term cost of free sample vs potential long-term conversion",
+            "Risk that trial users do not convert if product fit is not immediately clear",
+            "Limited appeal to those who already know they want the full product"
+          ]
+        },
+        "summary": "Offering a free sample (no payment, no sign-up required) will reduce the perceived risk for value-constrained pragmatists, encouraging them to try the product and experience its value, thus removing the initial adoption barrier.",
+        "type": "strategy_proposed"
+      },
+      {
+        "actorId": "consumer-value-constrained-pragmatist",
+        "actorRole": "consumer",
+        "actor_name": "Value-constrained pragmatist",
+        "bubble": "Zero upfront cost and no hidden commitment. That removes the main reason I'd normally walk away.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "feedback": {
+          "advocacy": {
+            "friendDescription": "'It's a free sample, no catch. Might be worth a try if you're tired of your current thing and don't want to waste cash.'",
+            "recommendationFeeling": "Cautious. I'd only recommend if the sample actually convinced me to buy and I felt no buyer's remorse.",
+            "sharingFeeling": "Low. I don't usually share promotions unless they save a friend money or risk. This feels transactional."
+          },
+          "barrier": "I still wonder if the free sample is actually useful enough to judge the full product, or if it's a tiny portion that doesn't show real value. Also, the reminder after three days could feel like a countdown timer, which I don't like.",
+          "behaviorDiagnosis": {
+            "actionFriction": "Almost none for the sample itself. But the reminder after three days introduces a small mental friction – it feels like a soft deadline I'd have to manage.",
+            "dominantDriver": "Risk reduction. The free sample eliminates the money worry, so I'm willing to give it a shot despite my usual skepticism.",
+            "firstSignal": "The words 'free sample' and 'no payment required' – that's what caught my eye first.",
+            "perceivedRisk": "That I'll use the sample, find it okay but not clearly better than my current cheap option, and then feel pressured by the reminder. The real risk is wasting time, not money.",
+            "referencePoint": "My usual cheaper alternative or doing without. I'm comparing this free sample to the cost and hassle of my current routine."
+          },
+          "behaviorNotes": [
+            "The free sample directly addresses the price sensitivity and trust sensitivity by removing upfront cost and commitment anxiety.",
+            "Social proof and professional branding were not strong cues here – the offer itself was the main signal.",
+            "The reminder timing introduces a mild sense of urgency that could backfire if the product didn't clearly demonstrate value during the trial.",
+            "Habit and inertia are strong barriers; a single-use trial may not be enough to override the established routine with the cheaper alternative."
+          ],
+          "competitor": "If a competitor offered an even cheaper or equally priced product with similar quality, I'd switch without hesitation.",
+          "competitorReaction": {
+            "likelyShift": "If a competitor offered an even cheaper or equally priced product with similar quality, I'd switch without hesitation.",
+            "reason": "My primary driver is avoiding waste and extra cost. Loyalty is low; if the job stays solved for less money or less effort, I'll move.",
+            "retentionCondition": "To keep me, the product must prove it saves me time, hassle, or noticeable quality loss compared to the cheaper option – and the price must stay within my budget mental line."
+          },
+          "currentAttitude": "Willing to try the free sample, but with guarded expectations. I'm not yet convinced to buy.",
+          "firstImpression": "A free sample with no payment or sign-up? That's unusual. I'm suspicious it's too easy, but also a little interested because there's no risk.",
+          "positioning": "Feels like a brand that knows its product needs proving, and is respectful of my budget. Not pushy. Maybe it's for people like me who hate wasting money on something untested.",
+          "pull": "Zero upfront cost and no hidden commitment. That removes the main reason I'd normally walk away.",
+          "repeat": "Skeptical but open. I'd need the full product to prove it's worth the extra cost over my current habit.",
+          "repeatPurchase": {
+            "condition": "If the sample solves a recurring need noticeably better than my cheap alternative, and the price feels fair for the value, I might repeat. It has to fit into my routine without extra hassle.",
+            "feeling": "Skeptical but open. I'd need the full product to prove it's worth the extra cost over my current habit.",
+            "habitOrInertia": "My current habit is strong because it's cheap and familiar. The free sample alone won't break that inertia; the product needs to be clearly superior in a daily-use way."
+          },
+          "scenarioName": "Normal comparison",
+          "understoodOffer": "They're offering a free trial of the product – one small use or first month free – with no strings attached, no auto-charges, and a single reminder after trying it."
+        },
+        "headline": "Value-constrained pragmatist responded",
+        "id": "live-mphucf6y-0006-consumer_feedback_ready",
+        "round": 1,
+        "scenarioName": "Normal comparison",
+        "strategyName": "Free Sample First Step",
+        "summary": "Willing to try the free sample, but with guarded expectations. I'm not yet convinced to buy.",
+        "type": "consumer_feedback_ready"
+      },
+      {
+        "actorId": "synthesizer",
+        "actorRole": "synthesizer",
+        "bubble": "Test a larger or more representative sample that allows a fuller value comparison to the consumer's current cheap alternative",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Feedback synthesis ready",
+        "id": "live-mphucf6y-0007-feedback_summary_ready",
+        "round": 1,
+        "strategyName": "Free Sample First Step",
+        "strategyTestIndex": 1,
+        "summary": "A low-friction trust-building tactic that feels refreshingly honest but leaves the core value proposition unproven, creating a cautious open door rather than a purchase commitment.",
+        "synthesis": {
+          "competitor": "Fragile – if a competitor matches price or offers a similar trial with clearer value demonstration, the target consumer would switch without hesitation",
+          "missingEvidence": [
+            "Whether the sample size is sufficient to demonstrate the product's superiority over the existing cheaper habit",
+            "Whether the absence of social proof or professional branding weakens trust in the product's overall quality",
+            "How the consumer behaves if the sample is good but not clearly better – does indifference lead to abandonment?"
+          ],
+          "moved": "Value-constrained pragmatists whose primary barrier was upfront cost and commitment anxiety – they are willing to try without resistance",
+          "next": "Test a larger or more representative sample that allows a fuller value comparison to the consumer's current cheap alternative",
+          "repeat": "Weak and conditional – the trial builds interest but does not create a habit or clear value comparison, so repeat purchase depends on the full product proving worth beyond the sample experience",
+          "scenarioNames": [
+            "Normal comparison"
+          ],
+          "searchSignals": {
+            "competitor_resilience": "fragile",
+            "core_target_response": "mixed",
+            "evidence_consistency": "mixed",
+            "repeat_logic": "weak",
+            "signal_note": "The free sample removes the initial cost barrier cleanly, but the trial's limited scope and subtle post-trial pressure leave the core value comparison unresolved and loyalty fragile against cheaper alternatives.",
+            "strategy_clarity": "clear",
+            "trial_momentum": "conditional"
+          },
+          "strongestEvidence": [
+            "Zero upfront cost with no hidden commitment directly removes the main rejection trigger for price-sensitive first-timers"
+          ],
+          "tags": [
+            "trust-sensitive",
+            "short-term trial",
+            "zero-commitment entry",
+            "value-demonstration gap",
+            "habit-inertia barrier"
+          ],
+          "unmoved": "Value-constrained pragmatists who need a clear comparative advantage over their existing habit or cheaper alternative – the sample alone does not prove superior value",
+          "weakestPoints": [
+            "The single-use trial may be too small to demonstrate enough value to outweigh inertia and habitual cheaper alternatives",
+            "Post-trial reminder on day 3 introduces a subtle countdown pressure that can feel like a hard sell, clashing with the low-pressure entry"
+          ]
+        },
+        "type": "feedback_summary_ready"
+      },
+      {
+        "actorId": "critic",
+        "actorRole": "critic",
+        "bubble": "Test sample sizes or trial durations that allow full-value comparison to the consumer's current cheap alternative.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "critique": {
+          "boundary": "Sample size/feature set may misrepresent the full product's value, leading to trial experiences that are too limited to drive conversion.",
+          "brandRisks": [
+            "If the sample is perceived as too small or gimmicky, it could cheapen brand perception among pragmatists looking for serious value.",
+            "The reminder, even if non-intrusive, risks being seen as a soft pressure tactic that erodes the 'refreshingly honest' trust built by the free offer."
+          ],
+          "evidenceUsed": [
+            "Consumer feedback stating the sample may be too small to judge full product value and that the reminder feels like a countdown timer.",
+            "Feedback summary indicating the core value proposition remains unproven and that the strategy has not moved those needing a clear comparative advantage.",
+            "Brand boundary allowing search marketing support but no specific product claims in the sample offer.",
+            "Product boundary stating LLM is used for simulated consumer/decision-maker feedback to iterate toward optimal decisions."
+          ],
+          "execution": [
+            "Distribution at select retailers may not align with where the target pragmatists shop, reducing trial reach.",
+            "Low-friction digital channel may still require account creation or download steps that introduce friction for the least committed users.",
+            "Post-trial reminder timing (day 3) may be too early if the sample takes time to demonstrate value (e.g., a physical consumable)."
+          ],
+          "mainRisk": "The single-use sample may be too small to demonstrate clear superiority over existing cheap habits, so the trial removes the upfront cost barrier but does not remove the comparative-value barrier.",
+          "mustValidateNext": [
+            "Test sample sizes or trial durations that allow full-value comparison to the consumer's current cheap alternative.",
+            "Validate whether removing the post-trial reminder entirely or replacing it with a low-commitment discount reduces perceived pressure.",
+            "Gather evidence on how indifference (sample is good but not clearly better) leads to abandonment or retention."
+          ],
+          "next": "Test sample sizes or trial durations that allow full-value comparison to the consumer's current cheap alternative.",
+          "productBoundaryRisks": [
+            "Sample size/feature set may misrepresent the full product's value, leading to trial experiences that are too limited to drive conversion.",
+            "No product claims are made in the sample offer, so the product's distinctiveness relative to alternatives remains uncommunicated."
+          ],
+          "searchRiskSignals": {
+            "brand_risk": "watch",
+            "execution_risk": "watch",
+            "product_boundary_risk": "watch",
+            "risk_note": "The product boundary risk is watch because the sample size may not prove full product value, but no false claims are made. Brand risk is watch as the low-friction approach builds trust but the reminder could undermine it. Execution risk is watch due to potential friction points and timing issues. Self-deception risk is serious because the sandbox may conflate trial willingness with purchase intent without validating comparative value.",
+            "self_deception_risk": "serious"
+          },
+          "selfDeception": [
+            "The sandbox may flatter itself by interpreting 'willing to try' as a strong leading indicator of conversion, when consumer feedback shows trial alone does not prove superior value.",
+            "The strategy may overvalue the removal of upfront cost while undervaluing the inertia of existing habit and the need for a clear comparative advantage."
+          ],
+          "unrealisticAssumptions": [
+            "Assumes a single-use sample provides enough experience to convince a pragmatist to switch from a cheaper habit.",
+            "Assumes the absence of social proof or brand authority does not undermine trust in product quality for value-constrained buyers.",
+            "Assumes a one-time reminder on day 3 feels non-pressuring rather than like a countdown, contradicting the low-friction promise."
+          ],
+          "unresolvedQuestions": [
+            "Is the single-use sample sufficient to demonstrate a compelling advantage over the consumer's current cheaper option?",
+            "Does the lack of social proof or professional branding weaken trust in product quality for this pragmatist segment?",
+            "How do consumers behave when they find the sample 'okay but not clearly better' – does indifference cause abandonment?"
+          ]
+        },
+        "headline": "Critic review ready",
+        "id": "live-mphucf6y-0008-critique_ready",
+        "round": 1,
+        "strategyName": "Free Sample First Step",
+        "strategyTestIndex": 1,
+        "summary": "The single-use sample may be too small to demonstrate clear superiority over existing cheap habits, so the trial removes the upfront cost barrier but does not remove the comparative-value barrier.",
+        "type": "critique_ready"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Keep the family memory qualitative.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Search memory updated",
+        "id": "live-mphucf6y-0009-search_updated",
+        "round": 1,
+        "search": {
+          "families": [
+            {
+              "id": "trial_value_entry",
+              "label": "qualitative memory updated",
+              "tone": "active"
+            }
+          ],
+          "internalMetrics": {
+            "appliedCaps": [],
+            "familyId": "trial_value_entry",
+            "mappingNote": "Internal sandbox search utility from qualitative summary and critic labels; it is not a market forecast.",
+            "metricBoundary": "Reward, mean reward, and UCB-related values are internal search utility signals, not market outcomes.",
+            "positiveComponents": {
+              "competitor_resilience": 0.075,
+              "core_target_response": 0.125,
+              "evidence_consistency": 0.05,
+              "repeat_logic": 0.0,
+              "strategy_clarity": 0.15,
+              "trial_momentum": 0.1
+            },
+            "positiveUtility": 0.5,
+            "reward": 0.285,
+            "riskComponents": {
+              "brand_risk": 0.04,
+              "execution_risk": 0.025,
+              "product_boundary_risk": 0.07,
+              "self_deception_risk": 0.08
+            },
+            "riskPenalty": 0.21500000000000002,
+            "stateAfter": {
+              "lastSelectedRound": 1,
+              "meanReward": 0.285,
+              "pullCount": 1,
+              "rewardSum": 0.285
+            },
+            "stateBefore": {
+              "lastSelectedRound": null,
+              "meanReward": 0.0,
+              "pullCount": 0,
+              "rewardSum": 0.0
+            }
+          },
+          "note": "Free Sample First Step summary: The free sample removes the initial cost barrier cleanly, but the trial's limited scope and subtle post-trial pressure leave the core value comparison unresolved and loyalty fragile against cheaper alternatives.; Free Sample First Step critic: The product boundary risk is watch because the sample size may not prove full product value, but no false claims are made. Brand risk is watch as the low-friction approach builds trust but the reminder could undermine it. Execution risk is watch due to potential friction points and timing issues. Self-deception risk is serious because the sandbox may conflate trial willingness with purchase intent without validating comparative value.",
+          "signals": {
+            "risk": "The product boundary risk is watch because the sample size may not prove full product value, but no false claims are made. Brand risk is watch as the low-friction approach builds trust but the reminder could undermine it. Execution risk is watch due to potential friction points and timing issues. Self-deception risk is serious because the sandbox may conflate trial willingness with purchase intent without validating comparative value.",
+            "riskLabels": {
+              "brand_risk": "watch",
+              "execution_risk": "watch",
+              "product_boundary_risk": "watch",
+              "risk_note": "The product boundary risk is watch because the sample size may not prove full product value, but no false claims are made. Brand risk is watch as the low-friction approach builds trust but the reminder could undermine it. Execution risk is watch due to potential friction points and timing issues. Self-deception risk is serious because the sandbox may conflate trial willingness with purchase intent without validating comparative value.",
+              "self_deception_risk": "serious"
+            },
+            "strategyName": "Free Sample First Step",
+            "summary": "The free sample removes the initial cost barrier cleanly, but the trial's limited scope and subtle post-trial pressure leave the core value comparison unresolved and loyalty fragile against cheaper alternatives.",
+            "summaryLabels": {
+              "competitor_resilience": "fragile",
+              "core_target_response": "mixed",
+              "evidence_consistency": "mixed",
+              "repeat_logic": "weak",
+              "signal_note": "The free sample removes the initial cost barrier cleanly, but the trial's limited scope and subtle post-trial pressure leave the core value comparison unresolved and loyalty fragile against cheaper alternatives.",
+              "strategy_clarity": "clear",
+              "trial_momentum": "conditional"
+            }
+          }
+        },
+        "summary": "trial_value_entry recorded completed qualitative evidence.",
+        "type": "search_updated"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Keep the next validation question visible.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "evidence": {
+          "consumerFeedbackSummary": "Free Sample First Step / Value-constrained pragmatist / Normal comparison: attitude Willing to try the free sample, but with guarded expectations. I'm not yet convinced to buy.; pull Zero upfront cost and no hidden commitment. That removes the main reason I'd normally walk away.; rejection I still wonder if the free sample is actually useful enough to judge the full product, or if it's a tiny portion that doesn't show real value. Also, the reminder after three days could feel like a countdown timer, which I don't like.; repeat Skeptical but open. I'd need the full product to prove it's worth the extra cost over my current habit.; competitor If a competitor offered an even cheaper or equally priced product with similar quality, I'd switch without hesitation..",
+          "critique": "Free Sample First Step: loopholes The single-use sample may be too small to demonstrate clear superiority over existing cheap habits, so the trial removes the upfront cost barrier but does not remove the comparative-value barrier. Must validate: Test sample sizes or trial durations that allow full-value comparison to the consumer's current cheap alternative.; Validate whether removing the post-trial reminder entirely or replacing it with a low-commitment discount reduces perceived pressure.; Gather evidence on how indifference (sample is good but not clearly better) leads to abandonment or retention.",
+          "feedbackSynthesis": "Free Sample First Step: A low-friction trust-building tactic that feels refreshingly honest but leaves the core value proposition unproven, creating a cautious open door rather than a purchase commitment. Next focus: Test a larger or more representative sample that allows a fuller value comparison to the consumer's current cheap alternative; Explore removal or softening of the post-trial reminder to eliminate any sense of urgency that feels pressuring; Consider adding a low-commitment follow-up (e.g., a small discount on the full product) instead of a single reminder"
+        },
+        "headline": "Round 1 completed",
+        "id": "live-mphucf6y-0010-round_completed",
+        "round": 1,
+        "summary": "Does the free sample offer clearly communicate a bounded, low-commitment value that feels worth the trial effort for value-constrained pragmatists, and does it avoid creating a perception of hidden costs or future obligations?",
+        "type": "round_completed"
+      }
+    ],
+    "source": "live_archive"
+  },
+  "resume": {
+    "blockedReason": "",
+    "canContinue": true,
+    "canReplay": true,
+    "mode": "continue_from_completed_round",
+    "requiresFreshCredentials": true
+  },
+  "safeBoundary": {
+    "completedRoundCount": 1,
+    "completedRounds": [
+      1
+    ],
+    "latestSafeEventId": "live-mphucf6y-0010-round_completed",
+    "partialEventsDropped": 0,
+    "safeBoundaryRule": "latest round_completed or run_completed event"
+  },
+  "sandboxCoreVersion": "marketing-sandbox-core/v1",
+  "schemaVersion": "marketing-sandbox-archive/v1",
+  "searchState": {
+    "completedRoundCount": 1,
+    "completedRounds": [
+      1
+    ],
+    "currentBestFamilyId": "trial_value_entry",
+    "currentBestStrategy": {
+      "eventId": "live-mphucf6y-0005-strategy_proposed",
+      "familyFit": "The candidate directly addresses the core barrier of perceived high cost or commitment by offering a bounded, free trial that clearly demonstrates value before any purchase.",
+      "familyId": "trial_value_entry",
+      "intent": "Offering a free sample (no payment, no sign-up required) will reduce the perceived risk for value-constrained pragmatists, encouraging them to try the product and experience its value, thus removing the initial adoption barrier.",
+      "round": 1,
+      "strategyName": "Free Sample First Step"
+    },
+    "familyStates": {
+      "trial_value_entry": {
+        "familyId": "trial_value_entry",
+        "lastSelectedRound": 1,
+        "latestRewardEventId": "live-mphucf6y-0009-search_updated",
+        "latestStrategy": {
+          "eventId": "live-mphucf6y-0005-strategy_proposed",
+          "familyFit": "The candidate directly addresses the core barrier of perceived high cost or commitment by offering a bounded, free trial that clearly demonstrates value before any purchase.",
+          "familyId": "trial_value_entry",
+          "intent": "Offering a free sample (no payment, no sign-up required) will reduce the perceived risk for value-constrained pragmatists, encouraging them to try the product and experience its value, thus removing the initial adoption barrier.",
+          "round": 1,
+          "strategyName": "Free Sample First Step"
+        },
+        "meanReward": 0.285,
+        "pullCount": 1,
+        "rewardSum": 0.285
+      }
+    },
+    "metricBoundary": "Archived reward and UCB values are internal search trace, not purchase rates or market forecasts.",
+    "nextRoundIndex": 2,
+    "partialEventsDropped": 0,
+    "recoveryRule": "Only search_updated events before the latest safe round_completed or run_completed boundary are used for UCB recovery.",
+    "restoresUcbState": true,
+    "rewardHistory": [
+      {
+        "appliedCaps": [],
+        "eventId": "live-mphucf6y-0009-search_updated",
+        "familyId": "trial_value_entry",
+        "mappingNote": "Internal sandbox search utility from qualitative summary and critic labels; it is not a market forecast.",
+        "order": 8,
+        "positiveComponents": {
+          "competitor_resilience": 0.075,
+          "core_target_response": 0.125,
+          "evidence_consistency": 0.05,
+          "repeat_logic": 0.0,
+          "strategy_clarity": 0.15,
+          "trial_momentum": 0.1
+        },
+        "positiveUtility": 0.5,
+        "reward": 0.285,
+        "riskComponents": {
+          "brand_risk": 0.04,
+          "execution_risk": 0.025,
+          "product_boundary_risk": 0.07,
+          "self_deception_risk": 0.08
+        },
+        "riskNote": "The product boundary risk is watch because the sample size may not prove full product value, but no false claims are made. Brand risk is watch as the low-friction approach builds trust but the reminder could undermine it. Execution risk is watch due to potential friction points and timing issues. Self-deception risk is serious because the sandbox may conflate trial willingness with purchase intent without validating comparative value.",
+        "riskPenalty": 0.21500000000000002,
+        "round": 1,
+        "strategyName": "Free Sample First Step",
+        "summaryNote": "The free sample removes the initial cost barrier cleanly, but the trial's limited scope and subtle post-trial pressure leave the core value comparison unresolved and loyalty fragile against cheaper alternatives."
+      }
+    ],
+    "source": "completed_round_events",
+    "ucbStateIncludesCompletedRoundsOnly": true,
+    "usesUcb": true
+  },
+  "sessionSnapshot": {
+    "config": {
+      "actionCategories": [
+        "Positioning",
+        "Product",
+        "Price",
+        "Channel",
+        "Promotion",
+        "Retention"
+      ],
+      "personaIds": [
+        "value-pragmatist"
+      ],
+      "product": {
+        "brand": "可以辅助搜索营销策略",
+        "facts": "用llm来扮演消费者，和出决策的人。通过不停的反馈，调整以达到最佳的决策。",
+        "goal": "找出能被不同人群解释清楚、也经得住竞品压力的营销方向。",
+        "name": "营销沙盘"
+      },
+      "provider": {
+        "baseUrl": "https://api.deepseek.com",
+        "defaultModel": "deepseek-chat",
+        "id": "deepseek-compatible",
+        "models": {},
+        "useBackendDefaults": false
+      },
+      "scenarioId": "normal",
+      "search": {
+        "candidatesPerRound": 1,
+        "familyIds": [
+          "trial_value_entry",
+          "trust_risk_reduction",
+          "retention_habit_defense"
+        ],
+        "rounds": 3,
+        "useUcb": true
+      },
+      "source": "live"
+    },
+    "credentialSource": "session_key",
+    "sessionId": "live-mphucf6y",
+    "sessionKeyPresent": true
+  },
+  "status": "auto_archived",
+  "stopReason": "api_disconnect_timeout",
+  "versionCompatibility": {
+    "canContinue": true,
+    "canReplay": true,
+    "eventContractVersion": "marketing-sandbox-web-events/v1",
+    "resumePolicy": "continue_from_completed_round",
+    "sandboxCoreVersion": "marketing-sandbox-core/v1",
+    "schemaVersion": "marketing-sandbox-archive/v1",
+    "status": "compatible"
+  }
+}

@@ -1,0 +1,573 @@
+{
+  "archiveFormatVersion": 2,
+  "archiveId": "live-mphu5c0c-20260523T041703-097588z0000",
+  "createdAt": "2026-05-23T04:17:03.097588+00:00",
+  "errorMessage": "Live event stream ended before run_completed; last event was round_progress.",
+  "eventContractVersion": "marketing-sandbox-web-events/v1",
+  "label": "live-mphu5c0c",
+  "playback": {
+    "events": [
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Send the run into the scene.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Live sandbox run started",
+        "id": "live-mphu5c0c-0001-run_started",
+        "round": 0,
+        "summary": "The live sandbox run is being translated into web events.",
+        "type": "run_started"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Calling live agents...",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Round 1 is calling model agents",
+        "id": "live-mphu5c0c-0002-round_progress",
+        "progress": {
+          "candidateCount": 1,
+          "expectedModelCalls": 4,
+          "note": "Provider-check only verifies a light API path. A real round also needs Decision, Consumer, Feedback, and Critic outputs to pass the sandbox contracts.",
+          "personaCount": 1,
+          "stage": "model_calls"
+        },
+        "round": 1,
+        "summary": "Round 1 has started real model calls. This round expects about 4 provider calls before consumer bubbles, reward, and UCB updates can appear.",
+        "type": "round_progress"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Open the next strategy test.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Round 1 started",
+        "id": "live-mphu5c0c-0003-round_started",
+        "proposal": {
+          "candidateCount": 1,
+          "decisionNote": "Focusing on the Value-constrained pragmatist persona in a normal comparison scenario, we need a low-commitment entry that demonstrates core product value without relying on discounts. The 'Trial value entry' family fits by offering a bounded first step with clear, understandable value.",
+          "nextValidationQuestion": "Does the 'first-use kit' as defined (single application, free, no purchase required) plausibly fall within the defined product boundaries and approved product claims (if any)?"
+        },
+        "round": 1,
+        "summary": "Focusing on the Value-constrained pragmatist persona in a normal comparison scenario, we need a low-commitment entry that demonstrates core product value without relying on discounts. The 'Trial value entry' family fits by offering a bounded first step with clear, understandable value.",
+        "type": "round_started"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Test Trial value entry.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "family": {
+          "coreBarrier": "First use feels too costly or too committal.",
+          "expectedActionPatterns": [
+            "clear trial offer",
+            "bounded entry value",
+            "first-use friction reduction"
+          ],
+          "failureSignals": [
+            "promotion hides product fit",
+            "repeat reason disappears after trial"
+          ],
+          "guidance": "Use trial access and concrete value without turning every reason into a discount.",
+          "id": "trial_value_entry",
+          "name": "Trial value entry",
+          "note": "Create a bounded first step whose value can be understood.",
+          "selectionReason": "cold start family has no complete observation yet",
+          "state": "cold start"
+        },
+        "headline": "Strategy family selected",
+        "id": "live-mphu5c0c-0004-family_selected",
+        "internalSearch": {
+          "generationIntent": "cold_start",
+          "kind": "family_selection",
+          "metricBoundary": "UCB score is an internal family-search score, not a purchase rate or market forecast.",
+          "selectionReason": "cold start family has no complete observation yet",
+          "ucbScore": {
+            "display": "cold start infinity",
+            "value": null
+          }
+        },
+        "round": 1,
+        "summary": "cold start family has no complete observation yet",
+        "type": "family_selected"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Free First-Use Kit with Clear Outcome",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "DecisionAgent proposed a strategy",
+        "id": "live-mphu5c0c-0005-strategy_proposed",
+        "proposal": {
+          "decisionNote": "Focusing on the Value-constrained pragmatist persona in a normal comparison scenario, we need a low-commitment entry that demonstrates core product value without relying on discounts. The 'Trial value entry' family fits by offering a bounded first step with clear, understandable value.",
+          "nextValidationQuestion": "Does the 'first-use kit' as defined (single application, free, no purchase required) plausibly fall within the defined product boundaries and approved product claims (if any)?"
+        },
+        "round": 1,
+        "strategy": {
+          "actions": [
+            {
+              "category": "Product",
+              "note": "Create a 'First-Use Kit' that contains a small, carefully chosen quantity of the product sufficient to achieve a specific, measurable benefit (e.g., enough for one clear application or use).",
+              "parameters": {
+                "intended_outcome": "visible, measurable result from first use",
+                "kit_content": "single-application sample"
+              },
+              "productClaims": [],
+              "reason": "Provides a concrete, bounded trial that reduces perceived commitment and lets the user directly evaluate the product's fit and performance."
+            },
+            {
+              "category": "Promotion",
+              "note": "Offer the First-Use Kit for free (no purchase required, maybe just cover shipping) via a dedicated landing page or in-store collection point.",
+              "parameters": {
+                "access_condition": "one per household, while supplies last",
+                "offer_type": "free sample with limited availability"
+              },
+              "productClaims": [],
+              "reason": "Zero monetary cost removes the price barrier completely, while the bounded kit prevents feeling of excessive generosity or discounting. Focus is on trial access, not discounting."
+            },
+            {
+              "category": "Channel",
+              "note": "Distribute the free kit through an online channel with a simple one-step form, and also via in-store display for immediate pickup.",
+              "parameters": {
+                "collection": "mail delivery or instant pickup",
+                "distribution_method": "web form + in-store display"
+              },
+              "productClaims": [],
+              "reason": "Availability in both digital and physical touchpoints reduces friction for different shopping habits of pragmatists. The online channel also allows for follow-up communication (e.g., usage tips, reminder of ongoing value)."
+            },
+            {
+              "category": "Retention",
+              "note": "After the kit is claimed, send a single follow-up email or in-app notification that asks about the experience and offers a 'refill' option at standard price without any discount or coupon.",
+              "parameters": {
+                "message_focus": "experience feedback and normal refill purchase",
+                "no_discount_or_coupon_included": true,
+                "timing": "3 days after expected first use"
+              },
+              "productClaims": [],
+              "reason": "Shifts focus from the trial to the product's normal value. The follow-up reinforces the core value proposition rather than training the consumer to wait for discounts. Avoids 'repeat reason disappears after trial' failure signal."
+            }
+          ],
+          "familyFit": "Directly addresses the 'first use feels too costly or too committal' barrier by creating a bounded, low-risk trial that lets the pragmatist experience core value before full commitment.",
+          "familyId": "trial_value_entry",
+          "intent": "By giving a free, limited-use sample that delivers a measurable and meaningful outcome, the pragmatist will perceive the initial step as valuable and low-risk, overcoming the cost/commitment barrier.",
+          "name": "Free First-Use Kit with Clear Outcome",
+          "targets": [
+            "Value-constrained pragmatist in normal comparison scenario"
+          ],
+          "tradeoffs": [
+            "Higher initial cost per user for sampling vs. potential future conversion",
+            "Risk of users consuming the free trial and not converting",
+            "Requires careful design of the 'bounded first step' to avoid feeling like a full discount"
+          ]
+        },
+        "summary": "By giving a free, limited-use sample that delivers a measurable and meaningful outcome, the pragmatist will perceive the initial step as valuable and low-risk, overcoming the cost/commitment barrier.",
+        "type": "strategy_proposed"
+      },
+      {
+        "actorId": "consumer-value-constrained-pragmatist",
+        "actorRole": "consumer",
+        "actor_name": "Value-constrained pragmatist",
+        "bubble": "Zero upfront cost. I can find out if it solves my problem without wasting money on something that might sit unused.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "feedback": {
+          "advocacy": {
+            "friendDescription": "Hey, this brand gives away a free sample big enough to really test if it works. No catch so far, just don't expect a forever discount.",
+            "recommendationFeeling": "Only if the trial clearly outperforms my usual cheap option. I'm not going to recommend something that feels like a gimmick.",
+            "sharingFeeling": "I'd mention the free trial to a friend who has the same need, but with a 'your mileage may vary' caution."
+          },
+          "barrier": "Skepticism that the 'measurable result' is genuine or that the trial size is too small to prove real value—feels like a tease that could still waste my time.",
+          "behaviorDiagnosis": {
+            "actionFriction": "Any perceived hassle in claiming—a long form, required account, or shipping cost that feels like a hidden fee.",
+            "dominantDriver": "Reduction of perceived loss: removing the financial outlay first lets me consider the product's actual utility.",
+            "firstSignal": "The word 'free' and then 'limited quantity'—both trigger attention but also a quick guard against traps.",
+            "perceivedRisk": "Risk of wasting time and effort on a trial that doesn't deliver a clear, useful outcome—or that pressures me into buying later.",
+            "referencePoint": "My current cheaper alternative or doing without. I compare against what I already use that costs less or nothing."
+          },
+          "behaviorNotes": [
+            "Behavioral prior 2 (heuristics like familiarity and price cues) matters strongly—the free offer breaks the price barrier but skepticism about the result remains.",
+            "Behavioral prior 4 (perceived risk of wasted effort and regret) matters more than the promise of a future benefit.",
+            "Behavioral prior 5 (immediate friction of claiming the kit) is critical—any complexity undermines the low-risk promise.",
+            "Behavioral prior 1 (limited attention) is relevant: I noticed 'free' first, then 'measurable result.' If the landing page doesn't clearly show how the kit works, I click away."
+          ],
+          "competitor": "If a cheaper substitute or simpler solution for the same job appears with less hassle or lower ongoing spend, I'm gone.",
+          "competitorReaction": {
+            "likelyShift": "If a cheaper substitute or simpler solution for the same job appears with less hassle or lower ongoing spend, I'm gone.",
+            "reason": "I have no loyalty to the brand yet—only to the job getting done cheaply. The trial only buys a chance to prove ongoing worth.",
+            "retentionCondition": "The product must continue to feel like the best practical value (cost vs. result) versus any alternative I encounter, without me having to hunt for deals."
+          },
+          "currentAttitude": "Willing to try, but only if claiming the kit is truly simple with no hidden steps or data mining that feels like a hassle.",
+          "firstImpression": "Free sample—okay, that gets my attention. But I need to see if it actually does what it says without a catch.",
+          "positioning": "A brand that's confident enough in its product to let me test it risk-free, but also aware I'm not going to gamble my money blindly.",
+          "pull": "Zero upfront cost. I can find out if it solves my problem without wasting money on something that might sit unused.",
+          "repeat": "If the trial gives a clear, measurable result that makes my routine easier or better, I could see myself buying the full product.",
+          "repeatPurchase": {
+            "condition": "The full price must still feel reasonable compared to my current alternative. The trial proves value, but the refill price needs to match that value in my budget.",
+            "feeling": "If the trial gives a clear, measurable result that makes my routine easier or better, I could see myself buying the full product.",
+            "habitOrInertia": "If the product fits seamlessly into an existing routine (same time, same effort, same steps), I might stick with it. If it adds any extra step, inertia pulls me back to the familiar."
+          },
+          "scenarioName": "Normal comparison",
+          "understoodOffer": "A free small trial pack that's enough for one use, to see if the product really works. I might pay shipping, but no purchase required."
+        },
+        "headline": "Value-constrained pragmatist responded",
+        "id": "live-mphu5c0c-0006-consumer_feedback_ready",
+        "round": 1,
+        "scenarioName": "Normal comparison",
+        "strategyName": "Free First-Use Kit with Clear Outcome",
+        "summary": "Willing to try, but only if claiming the kit is truly simple with no hidden steps or data mining that feels like a hassle.",
+        "type": "consumer_feedback_ready"
+      },
+      {
+        "actorId": "synthesizer",
+        "actorRole": "synthesizer",
+        "bubble": "Test whether the sample size is perceived as 'enough to prove value' vs. 'too small to trust'",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Feedback synthesis ready",
+        "id": "live-mphu5c0c-0007-feedback_summary_ready",
+        "round": 1,
+        "strategyName": "Free First-Use Kit with Clear Outcome",
+        "strategyTestIndex": 1,
+        "summary": "A low-friction trial that hooks the pragmatist through zero cost and simplicity, but leaves them wary of time-waste and skeptical that the sample is too skimpy to prove real value.",
+        "synthesis": {
+          "competitor": "Fragile – as soon as a cheaper or simpler alternative appears with less hassle or lower ongoing spend, this strategy loses its edge.",
+          "missingEvidence": [
+            "Whether the kit's intended outcome is actually perceived as measurable by consumers",
+            "How the follow-up email (no discount) changes repeat intent relative to a discount offer",
+            "How this strategy performs against a price-matched competitor with a similar trial"
+          ],
+          "moved": "Value-constrained pragmatists intrigued by zero upfront cost and simple claim process",
+          "next": "Test whether the sample size is perceived as 'enough to prove value' vs. 'too small to trust'",
+          "repeat": "Conditional – repeat purchase feels natural only if the trial delivers a convincingly measurable improvement over the current cheaper option; otherwise, the trial is a dead end.",
+          "scenarioNames": [
+            "Normal comparison"
+          ],
+          "searchSignals": {
+            "competitor_resilience": "fragile",
+            "core_target_response": "mixed",
+            "evidence_consistency": "mixed",
+            "repeat_logic": "conditional",
+            "signal_note": "The trial promise lands well on cost barrier and attention, but skepticism about sample adequacy and time-waste risk keeps the pragmatist in a wait-and-see mode rather than ready to commit.",
+            "strategy_clarity": "partial",
+            "trial_momentum": "conditional"
+          },
+          "strongestEvidence": [
+            "Zero upfront cost breaks the price barrier and grabs attention",
+            "Willingness to convert if the trial yields a clear, useful outcome"
+          ],
+          "tags": [
+            "trust-sensitive",
+            "short-term trial",
+            "friction-sensitive",
+            "value-proving"
+          ],
+          "unmoved": "Pragmatists who fear the trial size is too small to be conclusive",
+          "weakestPoints": [
+            "Risk that the sample feels like a tease rather than a proof-of-concept",
+            "Any friction or perceived data-mining in claiming the kit undermines the low-risk promise"
+          ]
+        },
+        "type": "feedback_summary_ready"
+      },
+      {
+        "actorId": "critic",
+        "actorRole": "critic",
+        "bubble": "Test whether the single-application kit size is perceived by pragmatists as 'enough to prove value' or 'too small to trust' using a simple A/B survey or landing page variant.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "critique": {
+          "boundary": "The 'single-application sample' may not align with the product's actual usage cycle or dosage requirements, creating a gap between the promised 'clear outcome' and what the product can realistically deliver in one use.",
+          "brandRisks": [
+            "If the sample is perceived as a tease or a data-mining ploy, it could damage brand trust among pragmatists, who are already skeptical of marketing spin.",
+            "Brand boundaries are missing, so there is no guardrail against the free kit cheapening the brand's perceived value or creating an expectation of free trials as the norm."
+          ],
+          "evidenceUsed": [
+            "Consumer feedback: 'Risk of wasting time and effort on a trial that doesn't deliver a clear, useful outcome' and 'Skepticism that the trial size is too small to prove real value—feels like a tease.'",
+            "Feedback summary: 'Weakest points: Risk that the sample feels like a tease rather than a proof-of-concept; Any friction or perceived data-mining in claiming the kit undermines the low-risk promise.'",
+            "Strategy parameters: 'kit_content: single-application sample', 'no_discount_or_coupon_included: true', 'timing: 3 days after expected first use'.",
+            "Missing evidence noted in feedback summary: 'Whether the kit's intended outcome is actually perceived as measurable by consumers.'"
+          ],
+          "execution": [
+            "The simple one-step form and minimal data collection required to claim the kit may conflict with internal data policies or legal requirements (e.g., GDPR), introducing friction that undermines the low-risk promise.",
+            "Coordinating online distribution, in-store displays, and follow-up timing (3 days after expected first use) across multiple channels increases operational complexity and the risk of inconsistent user experience.",
+            "The 'while supplies last' limitation could backfire if demand is high and the kit runs out quickly, frustrating pragmatists who value simplicity and reliability."
+          ],
+          "mainRisk": "The strategy assumes that a single-application sample is sufficient to deliver a 'measurable and meaningful outcome,' but consumer feedback explicitly warns that the trial size may be perceived as too small to prove real value, turning the offer into a tease rather than a proof-of-concept.",
+          "mustValidateNext": [
+            "Test whether the single-application kit size is perceived by pragmatists as 'enough to prove value' or 'too small to trust' using a simple A/B survey or landing page variant.",
+            "Validate whether the intended 'measurable outcome' is actually noticed and valued by consumers in a blind trial, vs. being seen as marketing spin.",
+            "Test the no-discount follow-up email against a follow-up that offers a small, non-discount incentive (e.g., free shipping on first full purchase) to see which drives higher repeat intent."
+          ],
+          "next": "Test whether the single-application kit size is perceived by pragmatists as 'enough to prove value' or 'too small to trust' using a simple A/B survey or landing page variant.",
+          "productBoundaryRisks": [
+            "The 'single-application sample' may not align with the product's actual usage cycle or dosage requirements, creating a gap between the promised 'clear outcome' and what the product can realistically deliver in one use.",
+            "No product claims are made, but the implicit claim that one use delivers a 'measurable and meaningful outcome' could be a de facto product performance claim, exposing the strategy to consumer protection risk if the result is not reliably visible."
+          ],
+          "searchRiskSignals": {
+            "brand_risk": "watch",
+            "execution_risk": "watch",
+            "product_boundary_risk": "serious",
+            "risk_note": "Product boundary risk is serious because the implicit claim of a 'measurable outcome' from a single-use sample is unvalidated and could expose the strategy to consumer skepticism or regulatory scrutiny. Self-deception risk is serious because the sandbox may overestimate the appeal of zero cost while underestimating pragmatists' concern for time-waste and conclusive proof.",
+            "self_deception_risk": "serious"
+          },
+          "selfDeception": [
+            "The sandbox may flatter itself by assuming that 'zero upfront cost' is the main barrier for pragmatists, when feedback shows time-waste and skepticism are equally or more important.",
+            "The sandbox may overestimate the clarity of the 'measurable outcome' because the term is defined from the product team's perspective, not validated with actual consumers.",
+            "The strategy labels itself 'low-friction' but the dual-channel distribution and follow-up email add steps that pragmatists may perceive as hassle, especially if they fear data mining."
+          ],
+          "unrealisticAssumptions": [
+            "Assumes that a free sample with zero monetary cost automatically overcomes the cost/commitment barrier, ignoring that the pragmatist's primary perceived risk is wasted time and effort, not money.",
+            "Assumes that the outcome of a single-use kit will be universally seen as 'measurable' by consumers, when feedback indicates skepticism about whether the result is genuine or conclusive.",
+            "Assumes that a no-discount follow-up email will effectively drive conversion, without evidence that pragmatists expect some incentive after a trial to compensate for switching hassle."
+          ],
+          "unresolvedQuestions": [
+            "How does the free-sample strategy compare against a price-matched competitor offering a similar trial but with a guaranteed discount on the first full purchase?",
+            "Is the follow-up email timing of 3 days after expected first use too early, too late, or optimal for re-engaging the pragmatist without feeling pushy?",
+            "What specific data points are collected in the 'simple one-step form,' and do those data requirements trigger privacy concerns that deter claiming the kit?"
+          ]
+        },
+        "headline": "Critic review ready",
+        "id": "live-mphu5c0c-0008-critique_ready",
+        "round": 1,
+        "strategyName": "Free First-Use Kit with Clear Outcome",
+        "strategyTestIndex": 1,
+        "summary": "The strategy assumes that a single-application sample is sufficient to deliver a 'measurable and meaningful outcome,' but consumer feedback explicitly warns that the trial size may be perceived as too small to prove real value, turning the offer into a tease rather than a proof-of-concept.",
+        "type": "critique_ready"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Keep the family memory qualitative.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Search memory updated",
+        "id": "live-mphu5c0c-0009-search_updated",
+        "round": 1,
+        "search": {
+          "families": [
+            {
+              "id": "trial_value_entry",
+              "label": "qualitative memory updated",
+              "tone": "active"
+            }
+          ],
+          "internalMetrics": {
+            "appliedCaps": [],
+            "familyId": "trial_value_entry",
+            "mappingNote": "Internal sandbox search utility from qualitative summary and critic labels; it is not a market forecast.",
+            "metricBoundary": "Reward, mean reward, and UCB-related values are internal search utility signals, not market outcomes.",
+            "positiveComponents": {
+              "competitor_resilience": 0.075,
+              "core_target_response": 0.125,
+              "evidence_consistency": 0.05,
+              "repeat_logic": 0.075,
+              "strategy_clarity": 0.075,
+              "trial_momentum": 0.1
+            },
+            "positiveUtility": 0.5,
+            "reward": 0.21499999999999997,
+            "riskComponents": {
+              "brand_risk": 0.04,
+              "execution_risk": 0.025,
+              "product_boundary_risk": 0.14,
+              "self_deception_risk": 0.08
+            },
+            "riskPenalty": 0.28500000000000003,
+            "stateAfter": {
+              "lastSelectedRound": 1,
+              "meanReward": 0.21499999999999997,
+              "pullCount": 1,
+              "rewardSum": 0.21499999999999997
+            },
+            "stateBefore": {
+              "lastSelectedRound": null,
+              "meanReward": 0.0,
+              "pullCount": 0,
+              "rewardSum": 0.0
+            }
+          },
+          "note": "Free First-Use Kit with Clear Outcome summary: The trial promise lands well on cost barrier and attention, but skepticism about sample adequacy and time-waste risk keeps the pragmatist in a wait-and-see mode rather than ready to commit.; Free First-Use Kit with Clear Outcome critic: Product boundary risk is serious because the implicit claim of a 'measurable outcome' from a single-use sample is unvalidated and could expose the strategy to consumer skepticism or regulatory scrutiny. Self-deception risk is serious because the sandbox may overestimate the appeal of zero cost while underestimating pragmatists' concern for time-waste and conclusive proof.",
+          "signals": {
+            "risk": "Product boundary risk is serious because the implicit claim of a 'measurable outcome' from a single-use sample is unvalidated and could expose the strategy to consumer skepticism or regulatory scrutiny. Self-deception risk is serious because the sandbox may overestimate the appeal of zero cost while underestimating pragmatists' concern for time-waste and conclusive proof.",
+            "riskLabels": {
+              "brand_risk": "watch",
+              "execution_risk": "watch",
+              "product_boundary_risk": "serious",
+              "risk_note": "Product boundary risk is serious because the implicit claim of a 'measurable outcome' from a single-use sample is unvalidated and could expose the strategy to consumer skepticism or regulatory scrutiny. Self-deception risk is serious because the sandbox may overestimate the appeal of zero cost while underestimating pragmatists' concern for time-waste and conclusive proof.",
+              "self_deception_risk": "serious"
+            },
+            "strategyName": "Free First-Use Kit with Clear Outcome",
+            "summary": "The trial promise lands well on cost barrier and attention, but skepticism about sample adequacy and time-waste risk keeps the pragmatist in a wait-and-see mode rather than ready to commit.",
+            "summaryLabels": {
+              "competitor_resilience": "fragile",
+              "core_target_response": "mixed",
+              "evidence_consistency": "mixed",
+              "repeat_logic": "conditional",
+              "signal_note": "The trial promise lands well on cost barrier and attention, but skepticism about sample adequacy and time-waste risk keeps the pragmatist in a wait-and-see mode rather than ready to commit.",
+              "strategy_clarity": "partial",
+              "trial_momentum": "conditional"
+            }
+          }
+        },
+        "summary": "trial_value_entry recorded completed qualitative evidence.",
+        "type": "search_updated"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Keep the next validation question visible.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "evidence": {
+          "consumerFeedbackSummary": "Free First-Use Kit with Clear Outcome / Value-constrained pragmatist / Normal comparison: attitude Willing to try, but only if claiming the kit is truly simple with no hidden steps or data mining that feels like a hassle.; pull Zero upfront cost. I can find out if it solves my problem without wasting money on something that might sit unused.; rejection Skepticism that the 'measurable result' is genuine or that the trial size is too small to prove real value—feels like a tease that could still waste my time.; repeat If the trial gives a clear, measurable result that makes my routine easier or better, I could see myself buying the full product.; competitor If a cheaper substitute or simpler solution for the same job appears with less hassle or lower ongoing spend, I'm gone..",
+          "critique": "Free First-Use Kit with Clear Outcome: loopholes The strategy assumes that a single-application sample is sufficient to deliver a 'measurable and meaningful outcome,' but consumer feedback explicitly warns that the trial size may be perceived as too small to prove real value, turning the offer into a tease rather than a proof-of-concept. Must validate: Test whether the single-application kit size is perceived by pragmatists as 'enough to prove value' or 'too small to trust' using a simple A/B survey or landing page variant.; Validate whether the intended 'measurable outcome' is actually noticed and valued by consumers in a blind trial, vs. being seen as marketing spin.; Test the no-discount follow-up email against a follow-up that offers a small, non-discount incentive (e.g., free shipping on first full purchase) to see which drives higher repeat intent.",
+          "feedbackSynthesis": "Free First-Use Kit with Clear Outcome: A low-friction trial that hooks the pragmatist through zero cost and simplicity, but leaves them wary of time-waste and skeptical that the sample is too skimpy to prove real value. Next focus: Test whether the sample size is perceived as 'enough to prove value' vs. 'too small to trust'; Clarify the 'measurable outcome' with concrete before/after framing or testimonials; Reduce any friction in the claim process (e.g., no account creation, minimal data); Explore a low-cost first purchase follow-up that reinforces value without discounting"
+        },
+        "headline": "Round 1 completed",
+        "id": "live-mphu5c0c-0010-round_completed",
+        "round": 1,
+        "summary": "Does the 'first-use kit' as defined (single application, free, no purchase required) plausibly fall within the defined product boundaries and approved product claims (if any)?",
+        "type": "round_completed"
+      }
+    ],
+    "source": "live_archive"
+  },
+  "resume": {
+    "blockedReason": "",
+    "canContinue": true,
+    "canReplay": true,
+    "mode": "continue_from_completed_round",
+    "requiresFreshCredentials": true
+  },
+  "safeBoundary": {
+    "completedRoundCount": 1,
+    "completedRounds": [
+      1
+    ],
+    "latestSafeEventId": "live-mphu5c0c-0010-round_completed",
+    "partialEventsDropped": 0,
+    "safeBoundaryRule": "latest round_completed or run_completed event"
+  },
+  "sandboxCoreVersion": "marketing-sandbox-core/v1",
+  "schemaVersion": "marketing-sandbox-archive/v1",
+  "searchState": {
+    "completedRoundCount": 1,
+    "completedRounds": [
+      1
+    ],
+    "currentBestFamilyId": "trial_value_entry",
+    "currentBestStrategy": {
+      "eventId": "live-mphu5c0c-0005-strategy_proposed",
+      "familyFit": "Directly addresses the 'first use feels too costly or too committal' barrier by creating a bounded, low-risk trial that lets the pragmatist experience core value before full commitment.",
+      "familyId": "trial_value_entry",
+      "intent": "By giving a free, limited-use sample that delivers a measurable and meaningful outcome, the pragmatist will perceive the initial step as valuable and low-risk, overcoming the cost/commitment barrier.",
+      "round": 1,
+      "strategyName": "Free First-Use Kit with Clear Outcome"
+    },
+    "familyStates": {
+      "trial_value_entry": {
+        "familyId": "trial_value_entry",
+        "lastSelectedRound": 1,
+        "latestRewardEventId": "live-mphu5c0c-0009-search_updated",
+        "latestStrategy": {
+          "eventId": "live-mphu5c0c-0005-strategy_proposed",
+          "familyFit": "Directly addresses the 'first use feels too costly or too committal' barrier by creating a bounded, low-risk trial that lets the pragmatist experience core value before full commitment.",
+          "familyId": "trial_value_entry",
+          "intent": "By giving a free, limited-use sample that delivers a measurable and meaningful outcome, the pragmatist will perceive the initial step as valuable and low-risk, overcoming the cost/commitment barrier.",
+          "round": 1,
+          "strategyName": "Free First-Use Kit with Clear Outcome"
+        },
+        "meanReward": 0.21499999999999997,
+        "pullCount": 1,
+        "rewardSum": 0.21499999999999997
+      }
+    },
+    "metricBoundary": "Archived reward and UCB values are internal search trace, not purchase rates or market forecasts.",
+    "nextRoundIndex": 2,
+    "partialEventsDropped": 0,
+    "recoveryRule": "Only search_updated events before the latest safe round_completed or run_completed boundary are used for UCB recovery.",
+    "restoresUcbState": true,
+    "rewardHistory": [
+      {
+        "appliedCaps": [],
+        "eventId": "live-mphu5c0c-0009-search_updated",
+        "familyId": "trial_value_entry",
+        "mappingNote": "Internal sandbox search utility from qualitative summary and critic labels; it is not a market forecast.",
+        "order": 8,
+        "positiveComponents": {
+          "competitor_resilience": 0.075,
+          "core_target_response": 0.125,
+          "evidence_consistency": 0.05,
+          "repeat_logic": 0.075,
+          "strategy_clarity": 0.075,
+          "trial_momentum": 0.1
+        },
+        "positiveUtility": 0.5,
+        "reward": 0.21499999999999997,
+        "riskComponents": {
+          "brand_risk": 0.04,
+          "execution_risk": 0.025,
+          "product_boundary_risk": 0.14,
+          "self_deception_risk": 0.08
+        },
+        "riskNote": "Product boundary risk is serious because the implicit claim of a 'measurable outcome' from a single-use sample is unvalidated and could expose the strategy to consumer skepticism or regulatory scrutiny. Self-deception risk is serious because the sandbox may overestimate the appeal of zero cost while underestimating pragmatists' concern for time-waste and conclusive proof.",
+        "riskPenalty": 0.28500000000000003,
+        "round": 1,
+        "strategyName": "Free First-Use Kit with Clear Outcome",
+        "summaryNote": "The trial promise lands well on cost barrier and attention, but skepticism about sample adequacy and time-waste risk keeps the pragmatist in a wait-and-see mode rather than ready to commit."
+      }
+    ],
+    "source": "completed_round_events",
+    "ucbStateIncludesCompletedRoundsOnly": true,
+    "usesUcb": true
+  },
+  "sessionSnapshot": {
+    "config": {
+      "actionCategories": [
+        "Positioning",
+        "Product",
+        "Price",
+        "Channel",
+        "Promotion",
+        "Retention"
+      ],
+      "personaIds": [
+        "value-pragmatist"
+      ],
+      "product": {
+        "brand": "品牌事实待补",
+        "facts": "核心能力、不可越界的产品边界和可验证证据。",
+        "goal": "找出能被不同人群解释清楚、也经得住竞品压力的营销方向。",
+        "name": "课堂新品"
+      },
+      "provider": {
+        "baseUrl": "https://api.deepseek.com",
+        "defaultModel": "deepseek-chat",
+        "id": "openai-compatible",
+        "models": {},
+        "useBackendDefaults": false
+      },
+      "scenarioId": "normal",
+      "search": {
+        "candidatesPerRound": 1,
+        "familyIds": [
+          "trial_value_entry",
+          "trust_risk_reduction",
+          "retention_habit_defense"
+        ],
+        "rounds": 3,
+        "useUcb": true
+      },
+      "source": "live"
+    },
+    "credentialSource": "session_key",
+    "sessionId": "live-mphu5c0c",
+    "sessionKeyPresent": true
+  },
+  "status": "auto_archived",
+  "stopReason": "api_disconnect_timeout",
+  "versionCompatibility": {
+    "canContinue": true,
+    "canReplay": true,
+    "eventContractVersion": "marketing-sandbox-web-events/v1",
+    "resumePolicy": "continue_from_completed_round",
+    "sandboxCoreVersion": "marketing-sandbox-core/v1",
+    "schemaVersion": "marketing-sandbox-archive/v1",
+    "status": "compatible"
+  }
+}

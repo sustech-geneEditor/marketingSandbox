@@ -1,0 +1,110 @@
+{
+  "archiveFormatVersion": 2,
+  "archiveId": "live-mphu4gv4-20260523T041527-642021z0000",
+  "createdAt": "2026-05-23T04:15:27.642021+00:00",
+  "errorMessage": "Live event stream ended before run_completed; last event was round_progress.",
+  "eventContractVersion": "marketing-sandbox-web-events/v1",
+  "label": "live-mphu4gv4",
+  "playback": {
+    "events": [
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Send the run into the scene.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Live sandbox run started",
+        "id": "live-mphu4gv4-0001-run_started",
+        "round": 0,
+        "summary": "The live sandbox run is being translated into web events.",
+        "type": "run_started"
+      }
+    ],
+    "source": "live_archive"
+  },
+  "resume": {
+    "blockedReason": "archive has no completed round to continue from.",
+    "canContinue": false,
+    "canReplay": true,
+    "mode": "replay_only",
+    "requiresFreshCredentials": true
+  },
+  "safeBoundary": {
+    "completedRoundCount": 0,
+    "completedRounds": [],
+    "latestSafeEventId": "live-mphu4gv4-0001-run_started",
+    "partialEventsDropped": 0,
+    "safeBoundaryRule": "latest round_completed or run_completed event"
+  },
+  "sandboxCoreVersion": "marketing-sandbox-core/v1",
+  "schemaVersion": "marketing-sandbox-archive/v1",
+  "searchState": {
+    "completedRoundCount": 0,
+    "completedRounds": [],
+    "currentBestFamilyId": "",
+    "currentBestStrategy": {},
+    "familyStates": {},
+    "metricBoundary": "Archived reward and UCB values are internal search trace, not purchase rates or market forecasts.",
+    "nextRoundIndex": 1,
+    "partialEventsDropped": 0,
+    "recoveryRule": "Only search_updated events before the latest safe round_completed or run_completed boundary are used for UCB recovery.",
+    "restoresUcbState": false,
+    "rewardHistory": [],
+    "source": "completed_round_events",
+    "ucbStateIncludesCompletedRoundsOnly": true,
+    "usesUcb": true
+  },
+  "sessionSnapshot": {
+    "config": {
+      "actionCategories": [
+        "Positioning",
+        "Product",
+        "Price",
+        "Channel",
+        "Promotion",
+        "Retention"
+      ],
+      "personaIds": [
+        "value-pragmatist"
+      ],
+      "product": {
+        "brand": "品牌事实待补",
+        "facts": "核心能力、不可越界的产品边界和可验证证据。",
+        "goal": "找出能被不同人群解释清楚、也经得住竞品压力的营销方向。",
+        "name": "课堂新品"
+      },
+      "provider": {
+        "baseUrl": "https://api.deepseek.com",
+        "defaultModel": "deepseek-chat",
+        "id": "openai-compatible",
+        "models": {},
+        "useBackendDefaults": false
+      },
+      "scenarioId": "normal",
+      "search": {
+        "candidatesPerRound": 1,
+        "familyIds": [
+          "trial_value_entry",
+          "trust_risk_reduction",
+          "retention_habit_defense"
+        ],
+        "rounds": 3,
+        "useUcb": true
+      },
+      "source": "live"
+    },
+    "credentialSource": "session_key",
+    "sessionId": "live-mphu4gv4",
+    "sessionKeyPresent": true
+  },
+  "status": "auto_archived",
+  "stopReason": "api_disconnect_timeout",
+  "versionCompatibility": {
+    "canContinue": false,
+    "canReplay": true,
+    "eventContractVersion": "marketing-sandbox-web-events/v1",
+    "resumePolicy": "replay_only",
+    "sandboxCoreVersion": "marketing-sandbox-core/v1",
+    "schemaVersion": "marketing-sandbox-archive/v1",
+    "status": "compatible"
+  }
+}

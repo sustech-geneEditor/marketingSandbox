@@ -1,0 +1,785 @@
+{
+  "archiveFormatVersion": 2,
+  "archiveId": "live-mphuk4g3-20260523T042916-447577z0000",
+  "createdAt": "2026-05-23T04:29:16.447577+00:00",
+  "errorMessage": "Live event stream ended before run_completed; last event was round_progress.",
+  "eventContractVersion": "marketing-sandbox-web-events/v1",
+  "label": "live-mphuk4g3",
+  "playback": {
+    "events": [
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Send the run into the scene.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Live sandbox run started",
+        "id": "live-mphuk4g3-0001-run_started",
+        "round": 0,
+        "summary": "The live sandbox run is being translated into web events.",
+        "type": "run_started"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Calling live agents...",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Round 1 is calling model agents",
+        "id": "live-mphuk4g3-0002-round_progress",
+        "progress": {
+          "candidateCount": 1,
+          "expectedModelCalls": 8,
+          "note": "Provider-check only verifies a light API path. A real round also needs Decision, Consumer, Feedback, and Critic outputs to pass the sandbox contracts.",
+          "personaCount": 5,
+          "stage": "model_calls"
+        },
+        "round": 1,
+        "summary": "Round 1 has started real model calls. This round expects about 8 provider calls before consumer bubbles, reward, and UCB updates can appear.",
+        "type": "round_progress"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Open the next strategy test.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Round 1 started",
+        "id": "live-mphuk4g3-0003-round_started",
+        "proposal": {
+          "candidateCount": 1,
+          "decisionNote": "Initial strategy targets trial entry barrier with a low-commitment, high-value first-use experience for value-constrained and deal-triggered segments.",
+          "nextValidationQuestion": "Does the bounded free session clearly demonstrate product fit and immediate value, or does it obscure the product's true utility and lead to high post-trial attrition?"
+        },
+        "round": 1,
+        "summary": "Initial strategy targets trial entry barrier with a low-commitment, high-value first-use experience for value-constrained and deal-triggered segments.",
+        "type": "round_started"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Test Trial value entry.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "family": {
+          "coreBarrier": "First use feels too costly or too committal.",
+          "expectedActionPatterns": [
+            "clear trial offer",
+            "bounded entry value",
+            "first-use friction reduction"
+          ],
+          "failureSignals": [
+            "promotion hides product fit",
+            "repeat reason disappears after trial"
+          ],
+          "guidance": "Use trial access and concrete value without turning every reason into a discount.",
+          "id": "trial_value_entry",
+          "name": "Trial value entry",
+          "note": "Create a bounded first step whose value can be understood.",
+          "selectionReason": "cold start family has no complete observation yet",
+          "state": "cold start"
+        },
+        "headline": "Strategy family selected",
+        "id": "live-mphuk4g3-0004-family_selected",
+        "internalSearch": {
+          "generationIntent": "cold_start",
+          "kind": "family_selection",
+          "metricBoundary": "UCB score is an internal family-search score, not a purchase rate or market forecast.",
+          "selectionReason": "cold start family has no complete observation yet",
+          "ucbScore": {
+            "display": "cold start infinity",
+            "value": null
+          }
+        },
+        "round": 1,
+        "summary": "cold start family has no complete observation yet",
+        "type": "family_selected"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Bounded-value first session",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "DecisionAgent proposed a strategy",
+        "id": "live-mphuk4g3-0005-strategy_proposed",
+        "proposal": {
+          "decisionNote": "Initial strategy targets trial entry barrier with a low-commitment, high-value first-use experience for value-constrained and deal-triggered segments.",
+          "nextValidationQuestion": "Does the bounded free session clearly demonstrate product fit and immediate value, or does it obscure the product's true utility and lead to high post-trial attrition?"
+        },
+        "round": 1,
+        "strategy": {
+          "actions": [
+            {
+              "category": "Promotion",
+              "note": "Offer a time-limited, outcome-guaranteed first-use session (e.g., free first output or guided example) with no payment required for that session.",
+              "parameters": {
+                "commitment_level": "zero",
+                "session_value_description": "deliverable result",
+                "trial_type": "free_first_session"
+              },
+              "productClaims": [],
+              "reason": "Directly lowers the barrier of 'first use feels too costly' by making the first interaction cost-free and outcome-focused, appealing to pragmatists and deal-seekers."
+            },
+            {
+              "category": "Positioning",
+              "note": "Position the product as 'try once, see real value before any commitment' in all trial entry points.",
+              "parameters": {},
+              "productClaims": [],
+              "reason": "Reinforces the bounded first step and reduces perceived risk for trust-first risk reducers and time savers who may also be attracted."
+            },
+            {
+              "category": "Retention",
+              "note": "After the free session, present a clear low-cost follow-up option (e.g., pay-per-use or small subscription) that continues the value path without requiring a large commitment.",
+              "parameters": {
+                "first_payment_required": "after_free_session",
+                "follow_up_type": "low_commitment_continuation"
+              },
+              "productClaims": [],
+              "reason": "Prevents the 'repeat reason disappears after trial' failure signal by providing an immediate, bounded next step with clear ongoing value."
+            }
+          ],
+          "familyFit": "Creates a bounded, low-cost first step that demonstrates value without forcing upfront commitment, directly addressing the 'first use feels too costly or too committal' barrier.",
+          "familyId": "trial_value_entry",
+          "intent": "By offering a risk-free, structured trial with clear immediate value (e.g., first interaction outcome), we lower the perceived cost of entry and allow users to self-validate fit, increasing conversion and reducing early abandonment.",
+          "name": "Bounded-value first session",
+          "targets": [
+            "Value-constrained pragmatist",
+            "Deal-triggered explorer"
+          ],
+          "tradeoffs": [
+            "May attract non-committed users who churn after trial",
+            "Requires clear value communication upfront to avoid promotion hiding product fit"
+          ]
+        },
+        "summary": "By offering a risk-free, structured trial with clear immediate value (e.g., first interaction outcome), we lower the perceived cost of entry and allow users to self-validate fit, increasing conversion and reducing early abandonment.",
+        "type": "strategy_proposed"
+      },
+      {
+        "actorId": "consumer-value-constrained-pragmatist",
+        "actorRole": "consumer",
+        "actor_name": "Value-constrained pragmatist",
+        "bubble": "Zero commitment for the first use. I don't have to risk money to see if it actually saves me time or helps me get something done.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "feedback": {
+          "advocacy": {
+            "friendDescription": "It's a thing you can test once for free to see if it actually does what it says, before you pay anything.",
+            "recommendationFeeling": "Neutral. I'd only recommend it if the free session genuinely surprised me. I'm not a natural advocate.",
+            "sharingFeeling": "Low. I wouldn't share it unless a friend specifically complained about the problem this tool solves."
+          },
+          "barrier": "It still feels like an extra step. Even free, I have to invest my time to learn how to use it, and there's a small voice saying 'this is just a trick to get you hooked on something you never needed before'.",
+          "behaviorDiagnosis": {
+            "actionFriction": "Having to start the trial – clicking, maybe signing up, and figuring out the interface. That's still a hurdle even with $0 cost.",
+            "dominantDriver": "Bounded risk reduction. The 'try once, see value before any commitment' directly addresses my main barrier of feeling like this is an avoidable extra expense.",
+            "firstSignal": "The phrase 'no payment required for that session' – that's what caught my eye first.",
+            "perceivedRisk": "Wasting my limited time and attention on something that doesn't actually deliver a useful result, even if it's free.",
+            "referencePoint": "My current habit of either doing the thing myself for free (but slowly) or using a cheaper, familiar substitute."
+          },
+          "behaviorNotes": [
+            "Prior 1 (limited attention) mattered: I noticed the 'no payment' cue first, not the brand promise.",
+            "Prior 2 (familiarity heuristic) mattered: I immediately compared it to my current do-without or use-cheaper habit.",
+            "Prior 4 (perceived loss) mattered: The fear of wasting time on a free trial that goes nowhere was a real hesitation.",
+            "Prior 5 (immediate friction) mattered: Even free, the hassle of starting was noted as a barrier.",
+            "Prior 8 (mental accounting) did not clearly matter here because the first session is free; price only enters my mind for the follow-up."
+          ],
+          "competitor": "If a competitor offered a similar free session but with a clearer promise (e.g., 'solve this one specific task for free in 2 minutes'), I would compare the ease of that promise versus this one's general offer.",
+          "competitorReaction": {
+            "likelyShift": "If a competitor offered a similar free session but with a clearer promise (e.g., 'solve this one specific task for free in 2 minutes'), I would compare the ease of that promise versus this one's general offer.",
+            "reason": "Price and hassle are my buttons. A competitor that makes the value more obvious upfront or requires even less of my time would win.",
+            "retentionCondition": "Keep the low-commitment follow-up option simple and transparent. If after the free session I feel pressured into a big subscription, I'm gone. The 'next step' needs to feel fair, not like a trap."
+          },
+          "currentAttitude": "Willing to try, but guarded. I'm thinking 'I'll give it one shot, but I'm watching them like a hawk.'",
+          "firstImpression": "Okay, it says I can try it once for free and get a real result. That's different from most 'free trials' that just ask for my card and hope I forget. I'm listening.",
+          "positioning": "They're acting like a tool for a specific job, not a fancy platform. More like a 'try before you buy' utility than a subscription service.",
+          "pull": "Zero commitment for the first use. I don't have to risk money to see if it actually saves me time or helps me get something done.",
+          "repeat": "Cautiously open. I would need the free result to be a 'wow, that saved me real hassle' moment.",
+          "repeatPurchase": {
+            "condition": "The free output must solve a recurring pain point. If it's a one-off novelty, I won't pay. If it slots into a weekly or daily task I hate, paying a little feels fair.",
+            "feeling": "Cautiously open. I would need the free result to be a 'wow, that saved me real hassle' moment.",
+            "habitOrInertia": "Inertia heavily favors my current habit. The free session has to be strong enough to make switching feel like less effort than staying."
+          },
+          "scenarioName": "Normal comparison",
+          "understoodOffer": "A free first session where I get a usable outcome, no payment required. After that, I can pay a small amount per use or a tiny subscription if it was actually useful."
+        },
+        "headline": "Value-constrained pragmatist responded",
+        "id": "live-mphuk4g3-0006-consumer_feedback_ready",
+        "round": 1,
+        "scenarioName": "Normal comparison",
+        "strategyName": "Bounded-value first session",
+        "summary": "Willing to try, but guarded. I'm thinking 'I'll give it one shot, but I'm watching them like a hawk.'",
+        "type": "consumer_feedback_ready"
+      },
+      {
+        "actorId": "consumer-deal-triggered-explorer",
+        "actorRole": "consumer",
+        "actor_name": "Deal-triggered explorer",
+        "bubble": "The zero-commitment first session with a guaranteed outcome. That directly lowers the 'what if it's a waste of time' fear.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "feedback": {
+          "advocacy": {
+            "friendDescription": "It's one of those 'try it for free and actually get something done' things — not a teaser, but a real session you can use.",
+            "recommendationFeeling": "I'd tell a friend who's also curious but hesitant — 'Just try the free session, it's actually useful, no catch.'",
+            "sharingFeeling": "I'd share it if the free session gave me something impressive or surprising that felt like a win — otherwise, it's just another trial."
+          },
+          "barrier": "Skepticism that the free session is actually useful enough to judge fit — maybe it's too guided or simplified, and the real value is hidden behind the paywall.",
+          "behaviorDiagnosis": {
+            "actionFriction": "Registration or setup time for the free session — if it asks for too much info or takes more than a couple of minutes, I'll bounce.",
+            "dominantDriver": "Promotion sensitivity plus the chance to self-validate fit without commitment — the combo of a deal and reduced uncertainty.",
+            "firstSignal": "The 'try once, see real value before any commitment' messaging — that speaks directly to my deal-triggered mindset.",
+            "perceivedRisk": "The free session might not be representative of the full experience, so I still won't know if it's a good fit after using it.",
+            "referencePoint": "Other 'free trials' that required a credit card upfront or gave me a useless sample, then pushed a hard upsell."
+          },
+          "behaviorNotes": [
+            "Promotion sensitivity and risk reduction are the primary drivers — the bounded trial addresses both.",
+            "Social influence is secondary here; trend chatter may have sparked curiosity, but the deal is what gets me in.",
+            "Attention is limited — the clear 'free first session' cue needs to be the most visible element or I might not stop to read further."
+          ],
+          "competitor": "If a competitor offers a similarly low-risk trial with a better initial experience or a sweeter post-trial deal, I'll jump ship.",
+          "competitorReaction": {
+            "likelyShift": "If a competitor offers a similarly low-risk trial with a better initial experience or a sweeter post-trial deal, I'll jump ship.",
+            "reason": "My loyalty is to the best trial deal, not the brand. Once the promotion wears off, I'm back to browsing launches for the next entry offer.",
+            "retentionCondition": "The free session must produce a tangible, useful output that I'd lose or struggle to replicate elsewhere — creating a small switching cost beyond the price."
+          },
+          "currentAttitude": "Willing to try — the offer is exactly the kind of safe excuse I need to satisfy my curiosity.",
+          "firstImpression": "This looks like a no-risk way to actually see if this thing works before I decide whether it's worth my time or money.",
+          "positioning": "A brand that's confident enough in its product to let me test it for real, but also realistic that I might not want to commit big right away.",
+          "pull": "The zero-commitment first session with a guaranteed outcome. That directly lowers the 'what if it's a waste of time' fear.",
+          "repeat": "Cautiously open — if the free session genuinely delivers and feels valuable, I'd consider the low-cost follow-up.",
+          "repeatPurchase": {
+            "condition": "The follow-up option needs to feel like a natural next step, not a sudden price jump. I need to see a clear reason to stay beyond the promotional hook.",
+            "feeling": "Cautiously open — if the free session genuinely delivers and feels valuable, I'd consider the low-cost follow-up.",
+            "habitOrInertia": "I don't form habits easily from a single trial — I'll need a reminder or a recurring trigger (like a saved output I want to build on) to come back."
+          },
+          "scenarioName": "Normal comparison",
+          "understoodOffer": "They're offering a free first session that gives me a real result — not just a demo or a watered-down preview — and then a small paid option after if I want to keep going."
+        },
+        "headline": "Deal-triggered explorer responded",
+        "id": "live-mphuk4g3-0007-consumer_feedback_ready",
+        "round": 1,
+        "scenarioName": "Normal comparison",
+        "strategyName": "Bounded-value first session",
+        "summary": "Willing to try — the offer is exactly the kind of safe excuse I need to satisfy my curiosity.",
+        "type": "consumer_feedback_ready"
+      },
+      {
+        "actorId": "consumer-trust-first-risk-reducer",
+        "actorRole": "consumer",
+        "actor_name": "Trust-first risk reducer",
+        "bubble": "The zero-commitment first session with a tangible result. That directly lowers my fear of wasting money or time on something that doesn't deliver.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "feedback": {
+          "advocacy": {
+            "friendDescription": "'It gave me a free first session that actually worked—no payment, no catch. If you're skeptical like me, it's worth trying once to see if it fits.'",
+            "recommendationFeeling": "I'd recommend it only if my own trial was flawless and I felt the process was honest. Otherwise, I'd stay quiet to avoid endorsing a risk.",
+            "sharingFeeling": "I'd share if the free session impressed me and I could point to a specific result—proof in hand lowers my social risk."
+          },
+          "barrier": "I worry the free session might be too limited or gimmicky—like the 'deliverable result' won't match what I actually need, and then the follow-up options might feel pushy or unclear.",
+          "behaviorDiagnosis": {
+            "actionFriction": "None for the free session—that's designed to be frictionless. But signing up might still feel annoying if it requires too much info or account setup.",
+            "dominantDriver": "Trust through low-risk evidence. I need to see credible proof of value from my own trial before I'll consider paying.",
+            "firstSignal": "The promise of a free first session with a guaranteed outcome—that immediately signals lower risk.",
+            "perceivedRisk": "That the free session will be shallow or the 'guaranteed result' is vague, wasting my time and leaving me without real proof of value.",
+            "referencePoint": "My current known brand with a service history. I compare this offer to how much trust I already have there, even if it costs more."
+          },
+          "behaviorNotes": [
+            "Attention is limited; the free session cue was the most visible and relevant.",
+            "Under uncertainty, familiarity with my current alternative and perceived professionalism of this offer matter heavily.",
+            "Perceived loss and trust uncertainty outweigh a similar-sized promised benefit—the free session mitigates that but follow-up still risks regret.",
+            "Immediate friction for the free session is low, which is key for entry.",
+            "Social influence is weighed via credible reviews or expert proof, not buzz—but my own trial is stronger than any social proof.",
+            "Satisfaction alone won't guarantee repeat purchase; I need a clear, low-hassle next step and ongoing proof of value."
+          ],
+          "competitor": "If a known competitor offers a similar free trial with stronger service history or clearer guarantees, I'd switch immediately.",
+          "competitorReaction": {
+            "likelyShift": "If a known competitor offers a similar free trial with stronger service history or clearer guarantees, I'd switch immediately.",
+            "reason": "Competitor pressure is high because my current alternative already has my trust. Any uncertainty or weak proof from this product will send me back to familiarity.",
+            "retentionCondition": "The free session must be excellent and the follow-up must feel as safe as the first step—clear guarantees, no hidden fees, and ongoing evidence of value."
+          },
+          "currentAttitude": "Willing to try, but with guarded optimism. I'll test the free session carefully before deciding on any payment.",
+          "firstImpression": "This feels like a low-risk way to see if it actually works. I'm cautious, but a free first session with a guaranteed outcome catches my attention because I can test without losing anything.",
+          "positioning": "It's positioned as a 'try before you commit' tool—like a demo that actually delivers value, not just a teaser. Seems aimed at people who are skeptical about paying upfront.",
+          "pull": "The zero-commitment first session with a tangible result. That directly lowers my fear of wasting money or time on something that doesn't deliver.",
+          "repeat": "If the free session delivers exactly what it promised, I'd feel positive but still cautious about the next step.",
+          "repeatPurchase": {
+            "condition": "A clear, low-cost follow-up option that feels like a natural continuation—not a sudden jump in price or complexity. I need the same transparency in pricing and outcome guarantees.",
+            "feeling": "If the free session delivers exactly what it promised, I'd feel positive but still cautious about the next step.",
+            "habitOrInertia": "I'm not sticky by habit—I'll only continue if the value is consistently proven. Inertia works against me if the follow-up requires a big decision or new learning."
+          },
+          "scenarioName": "Normal comparison",
+          "understoodOffer": "I get one free try, no payment needed, and I'm supposed to get a real result from that session. After that, they'll offer a small pay-per-use or low-commitment option if I want to continue."
+        },
+        "headline": "Trust-first risk reducer responded",
+        "id": "live-mphuk4g3-0008-consumer_feedback_ready",
+        "round": 1,
+        "scenarioName": "Normal comparison",
+        "strategyName": "Bounded-value first session",
+        "summary": "Willing to try, but with guarded optimism. I'll test the free session carefully before deciding on any payment.",
+        "type": "consumer_feedback_ready"
+      },
+      {
+        "actorId": "consumer-convenience-first-time-saver",
+        "actorRole": "consumer",
+        "actor_name": "Convenience-first time saver",
+        "bubble": "Zero commitment to start. I don't have to weigh risk or search for reviews first—I just try it and get a real outcome in that one session.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "feedback": {
+          "advocacy": {
+            "friendDescription": "Just try it once and see if it works—no credit card needed, no hassle.",
+            "recommendationFeeling": "Mildly positive but only if asked directly. I wouldn't go out of my way.",
+            "sharingFeeling": "Low. Sharing involves extra effort. If it saves a friend obvious time, I might mention it in passing."
+          },
+          "barrier": "The 'time-limited' part nags at me. If the free session expires before I get to it, that’s a mental event I have to manage. Friction I didn’t ask for.",
+          "behaviorDiagnosis": {
+            "actionFriction": "Any step that adds time between 'I'm interested' and 'I'm seeing the result'—registration, waiting, or unclear access",
+            "dominantDriver": "Reduction of immediate effort: if this is literally the fastest path to a usable result today, I'll take it",
+            "firstSignal": "free first session / no payment required",
+            "perceivedRisk": "That the free session won't produce anything I actually need, making the whole thing a waste of a few minutes I don't have",
+            "referencePoint": "My current quickest routine option (whatever I already do that requires zero new thought)"
+          },
+          "behaviorNotes": [
+            "Attention is limited; the free first session was the only cue I processed initially.",
+            "Immediate friction (time limit, any extra clicks) outweighs promised future value.",
+            "Reference point is my current habit—not competitors—because inertia is strong.",
+            "Social influence didn't matter here because the offer is already low-risk enough to bypass it."
+          ],
+          "competitor": "I'd switch instantly if a competitor offers the same zero-effort first result with even fewer steps, like no free session expiration pressure.",
+          "competitorReaction": {
+            "likelyShift": "I'd switch instantly if a competitor offers the same zero-effort first result with even fewer steps, like no free session expiration pressure.",
+            "reason": "My switching threshold is purely about material speed and simplicity. Loyalty doesn't exist here—only routineness.",
+            "retentionCondition": "Keep the path to the next use as frictionless as the first. Don't introduce sign-ups, wait times, or confusing upsells after the trial."
+          },
+          "currentAttitude": "Willing to try, but only if I can do it now in under a minute.",
+          "firstImpression": "Okay, a free first session with no commitment and a real result at the end. That’s about as low-effort as it gets. I don’t have to think, register, or pay to see if it actually saves me time.",
+          "positioning": "A low-risk, fast-validation tool for people who don’t have time to waste on trials that don’t deliver immediate results.",
+          "pull": "Zero commitment to start. I don't have to weigh risk or search for reviews first—I just try it and get a real outcome in that one session.",
+          "repeat": "Neutral but open. If the free session works, I'd want to repeat that same exact ease without having to hunt for it again.",
+          "repeatPurchase": {
+            "condition": "The follow-up payment option must be a single tap with no rules or tiers to think about. If it adds any decision load, I'm out.",
+            "feeling": "Neutral but open. If the free session works, I'd want to repeat that same exact ease without having to hunt for it again.",
+            "habitOrInertia": "Habit is the whole game. If this becomes my default go-to because it's the easiest button to press, I'll stick. If I have to remember to come back or re-learn anything, my old routine wins by default."
+          },
+          "scenarioName": "Normal comparison",
+          "understoodOffer": "A tool I can use once for free, get something useful out of it, and then decide if I want to keep using it with a small payment option afterward."
+        },
+        "headline": "Convenience-first time saver responded",
+        "id": "live-mphuk4g3-0009-consumer_feedback_ready",
+        "round": 1,
+        "scenarioName": "Normal comparison",
+        "strategyName": "Bounded-value first session",
+        "summary": "Willing to try, but only if I can do it now in under a minute.",
+        "type": "consumer_feedback_ready"
+      },
+      {
+        "actorId": "consumer-habit-anchored-repeater",
+        "actorRole": "consumer",
+        "actor_name": "Habit-anchored repeater",
+        "bubble": "Zero commitment for a first try that delivers something useful. That directly bypasses my usual 'why bother?' inertia.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "feedback": {
+          "advocacy": {
+            "friendDescription": "It's that thing where you can try it once for free and see if you like it before paying anything. Not bad if you're bored with what you use now.",
+            "recommendationFeeling": "Neutral. I wouldn't go out of my way to recommend it unless asked by someone who's clearly dissatisfied with their current routine.",
+            "sharingFeeling": "Unlikely. I don't share tools unless the other person specifically complains about their process."
+          },
+          "barrier": "Even with a free session, it's still a break from my current routine. If the sign-up friction or learning curve feels like any effort, I might not even start.",
+          "behaviorDiagnosis": {
+            "actionFriction": "Any registration, account creation, or waiting before I get the result. A single extra click could stop me.",
+            "dominantDriver": "Inertia and habit—I move only when the new path feels almost as easy as the old one.",
+            "firstSignal": "'Free first session' and 'no payment required'—those jump out immediately because they reduce the perceived cost of leaving my habit.",
+            "perceivedRisk": "That trying it will waste my time or be more complicated than it's worth, even if it's free.",
+            "referencePoint": "My current default product and the ease of just doing what I always do."
+          },
+          "behaviorNotes": [
+            "Prior 5 (immediate friction: money now, waiting, registration, learning, switching effort) mattered most—entry ease is everything.",
+            "Prior 2 (familiarity, current alternatives) mattered—my incumbent habit is my reference point and main barrier.",
+            "Prior 1 (attention is limited) mattered—the 'free first session' was the only cue that caught my eye.",
+            "Prior 7 (satisfaction alone does not guarantee repeat purchase; habit, reminders, convenience matter) is critical for retention.",
+            "Prior 6 (social influence sensitivity) did not clearly matter—social proof doesn't move me much."
+          ],
+          "competitor": "Extremely low. I'd need a very clear signal that my current product is getting worse or more expensive before I'd even look elsewhere.",
+          "competitorReaction": {
+            "likelyShift": "Extremely low. I'd need a very clear signal that my current product is getting worse or more expensive before I'd even look elsewhere.",
+            "reason": "Competitor pressure barely registers because my loyalty is to my routine, not the brand. A new entrant would need to disrupt my habitual cue—like making my default product unavailable or noticeably harder to use.",
+            "retentionCondition": "Keep the free session truly frictionless, then the low-commitment follow-up must feel like an automatic replenishment, not a decision I have to make each time."
+          },
+          "currentAttitude": "Willing to try if the entry is truly effortless, but I'm not excited—just open to testing if it's convenient.",
+          "firstImpression": "Huh, a free first session with a guaranteed outcome. That's different—I don't usually bother with trials, but this one sounds like it gives me something concrete without me having to set anything up or pay.",
+          "positioning": "It feels like a practical tool that respects my time and routine—low hassle, low commitment, just show me the value before you ask for anything.",
+          "pull": "Zero commitment for a first try that delivers something useful. That directly bypasses my usual 'why bother?' inertia.",
+          "repeat": "Skeptical but possible. If the free session delivers clearly better than my usual, I'd consider the low-cost follow-up, but I won't chase it.",
+          "repeatPurchase": {
+            "condition": "The follow-up must be a single click, auto-remember my preferences, and cost less mental effort than my current routine. If I have to think about it, I'll default back.",
+            "feeling": "Skeptical but possible. If the free session delivers clearly better than my usual, I'd consider the low-cost follow-up, but I won't chase it.",
+            "habitOrInertia": "Habit is the gatekeeper. My current routine is automatic; any new behavior must either integrate into that rhythm or be so frictionless that it replaces it without effort."
+          },
+          "scenarioName": "Normal comparison",
+          "understoodOffer": "I can try it once for free, get a real result, and if I want to continue, I can pay a small amount for the next use instead of jumping into a big subscription."
+        },
+        "headline": "Habit-anchored repeater responded",
+        "id": "live-mphuk4g3-0010-consumer_feedback_ready",
+        "round": 1,
+        "scenarioName": "Normal comparison",
+        "strategyName": "Bounded-value first session",
+        "summary": "Willing to try if the entry is truly effortless, but I'm not excited—just open to testing if it's convenient.",
+        "type": "consumer_feedback_ready"
+      },
+      {
+        "actorId": "synthesizer",
+        "actorRole": "synthesizer",
+        "bubble": "Test variations that make the free session outcome more specific and immediately credible",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Feedback synthesis ready",
+        "id": "live-mphuk4g3-0011-feedback_summary_ready",
+        "round": 1,
+        "strategyName": "Bounded-value first session",
+        "strategyTestIndex": 1,
+        "summary": "A low-barrier, trust-building trial strategy that feels genuine in its zero-commitment promise but carries risk of being perceived as gimmicky or time-wasting if the free session lacks depth.",
+        "synthesis": {
+          "competitor": "Fragile. Competitors with similar zero-commitment trials but clearer promises, better initial experience, or stronger service history could easily pull away deal-seekers, risk reducers, and time savers. Habit-anchored repeaters are largely immune.",
+          "missingEvidence": [
+            "How the free session experience actually feels in practice (depth, usefulness, match to expectations)",
+            "Whether the low-commitment follow-up retains trial users or feels like a hidden paywall",
+            "How much the 'guaranteed outcome' promise is believed or distrusted",
+            "Impact of social proof or reviews on trust-first risk reducers when trial alone is insufficient"
+          ],
+          "moved": "Value-constrained pragmatist: willing to try with guarded optimism, intrigued by no payment required",
+          "next": "Test variations that make the free session outcome more specific and immediately credible",
+          "repeat": "Conditional and cautious. Repeat hinges on the free session delivering a clear 'wow' moment that validates value. Follow-up low-commitment option is a logical bridge but trust must be earned; skeptics need ongoing proof.",
+          "scenarioNames": [
+            "Normal comparison"
+          ],
+          "searchSignals": {
+            "competitor_resilience": "fragile",
+            "core_target_response": "moved",
+            "evidence_consistency": "mixed",
+            "repeat_logic": "conditional",
+            "signal_note": "Core targets (pragmatist, explorer) are moved and find the zero-commitment trial clear and appealing, but repeat logic is conditional on a wow-worthy free session, and competitor pressure is high due to low switching costs and skepticism about free session depth.",
+            "strategy_clarity": "clear",
+            "trial_momentum": "conditional"
+          },
+          "strongestEvidence": [
+            "Zero commitment first session is a clear differentiator from typical free trials and lowers fear of waste",
+            "Across pragmatists, explorers, risk reducers, and time savers, the no-payment cue is the most noticed and appreciated element",
+            "Deal-triggered explorer explicitly says the bounded trial addresses both promotion sensitivity and risk reduction"
+          ],
+          "tags": [
+            "trust-sensitive",
+            "short-term trial",
+            "low-friction entry",
+            "conditional repeat",
+            "competitor-fragile"
+          ],
+          "unmoved": "Habit-anchored repeater: still inertia-bound, free session not enough to overcome routine unless effortless",
+          "weakestPoints": [
+            "Skepticism that free session might be too limited or gimmicky to judge real product fit",
+            "Time-limited aspect adds mental friction for convenience-first time savers",
+            "Habit-anchored repeater remains unmoved unless entry is trivially easy and beats current routine"
+          ]
+        },
+        "type": "feedback_summary_ready"
+      },
+      {
+        "actorId": "critic",
+        "actorRole": "critic",
+        "bubble": "Whether the free session delivers a specific, credible, and immediately useful outcome that matches the target personas' real task expectations (not just a generic output).",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "critique": {
+          "boundary": "The product is an LLM-based consumer simulation sandbox (营销沙盘) — offering a 'free first output' or 'guided example' could be interpreted by users as a fixed marketing output, not the dynamic simulation they expect, causing mismatch.",
+          "brandRisks": [
+            "If the free session feels gimmicky or shallow, it could damage the brand's credibility as a serious marketing strategy tool, especially for trust-first risk reducers who rely on reputation.",
+            "The time-limited aspect adds mental friction that contradicts the convenience-first time saver's needs, risking brand perception as adding rather than removing complexity."
+          ],
+          "evidenceUsed": [
+            "Consumer feedback from all five personas highlighting time/attention cost despite zero financial commitment",
+            "Feedback summary noting skepticism that free session may be too limited or gimmicky",
+            "Convenience-first time saver's rejection of time-limit friction",
+            "Habit-anchored repeater's inertia even with free session",
+            "Product boundary: LLM-based consumer simulation sandbox (营销沙盘)",
+            "No execution boundaries supplied"
+          ],
+          "execution": [
+            "No execution boundaries supplied, so there is no check on whether the free session can actually be delivered quickly (under a minute) as Convenience-first time saver expects.",
+            "The follow-up low-commitment offer is not specified — if it feels like a pushy upsell, it will trigger the 'repeat reason disappears after trial' failure signal the strategy claims to prevent."
+          ],
+          "mainRisk": "The strategy assumes a 'guaranteed outcome' without specifying what that outcome is, which lets the sandbox claim success for any trivial result while the consumer expects a meaningful deliverable.",
+          "mustValidateNext": [
+            "Whether the free session delivers a specific, credible, and immediately useful outcome that matches the target personas' real task expectations (not just a generic output).",
+            "Whether removing or extending the time-limit reduces friction for time-savers without losing urgency for deal-triggered explorers."
+          ],
+          "next": "Whether the free session delivers a specific, credible, and immediately useful outcome that matches the target personas' real task expectations (not just a generic output).",
+          "productBoundaryRisks": [
+            "The product is an LLM-based consumer simulation sandbox (营销沙盘) — offering a 'free first output' or 'guided example' could be interpreted by users as a fixed marketing output, not the dynamic simulation they expect, causing mismatch.",
+            "No claim is made about what the 'deliverable result' actually is, so the product boundary is vague and could be overpromised relative to actual sandbox capability."
+          ],
+          "searchRiskSignals": {
+            "brand_risk": "watch",
+            "execution_risk": "serious",
+            "product_boundary_risk": "serious",
+            "risk_note": "Product boundary vague on what the 'guaranteed outcome' is, execution lacks specificity on how to deliver a fast, meaningful trial, and sandbox may overinterpret willingness to try as conversion intent.",
+            "self_deception_risk": "serious"
+          },
+          "selfDeception": [
+            "The sandbox may flatter itself by interpreting 'willing to try' as genuine conversion intent, when consumer feedback repeatedly shows guarded optimism and skepticism that the free session will be useful enough.",
+            "The summary claims the strategy feels 'genuine in its zero-commitment promise', but consumer feedback indicates many see it as a potential trick to get hooked — the sandbox may be ignoring that distrust signal."
+          ],
+          "unrealisticAssumptions": [
+            "Assumes that zero commitment first session eliminates perceived cost of entry, but consumer feedback shows time and attention are still costly barriers.",
+            "Assumes the free session will be perceived as representative of full product value, but feedback from Deal-triggered explorer and Trust-first risk reducer indicates skepticism that the trial is too guided or shallow."
+          ],
+          "unresolvedQuestions": [
+            "How deep and representative the free session actually is — is it a guided toy or a real test of fit?",
+            "Whether the low-commitment follow-up feels like a natural continuation or a hidden paywall.",
+            "Whether social proof or reviews are needed to supplement trust when the trial alone is insufficient for trust-first risk reducers."
+          ]
+        },
+        "headline": "Critic review ready",
+        "id": "live-mphuk4g3-0012-critique_ready",
+        "round": 1,
+        "strategyName": "Bounded-value first session",
+        "strategyTestIndex": 1,
+        "summary": "The strategy assumes a 'guaranteed outcome' without specifying what that outcome is, which lets the sandbox claim success for any trivial result while the consumer expects a meaningful deliverable.",
+        "type": "critique_ready"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Keep the family memory qualitative.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Search memory updated",
+        "id": "live-mphuk4g3-0013-search_updated",
+        "round": 1,
+        "search": {
+          "families": [
+            {
+              "id": "trial_value_entry",
+              "label": "qualitative memory updated",
+              "tone": "active"
+            }
+          ],
+          "internalMetrics": {
+            "appliedCaps": [
+              "serious_product_boundary_risk"
+            ],
+            "familyId": "trial_value_entry",
+            "mappingNote": "Internal sandbox search utility from qualitative summary and critic labels; it is not a market forecast.",
+            "metricBoundary": "Reward, mean reward, and UCB-related values are internal search utility signals, not market outcomes.",
+            "positiveComponents": {
+              "competitor_resilience": 0.075,
+              "core_target_response": 0.25,
+              "evidence_consistency": 0.05,
+              "repeat_logic": 0.075,
+              "strategy_clarity": 0.15,
+              "trial_momentum": 0.1
+            },
+            "positiveUtility": 0.7,
+            "reward": 0.35,
+            "riskComponents": {
+              "brand_risk": 0.04,
+              "execution_risk": 0.05,
+              "product_boundary_risk": 0.14,
+              "self_deception_risk": 0.08
+            },
+            "riskPenalty": 0.31,
+            "stateAfter": {
+              "lastSelectedRound": 1,
+              "meanReward": 0.35,
+              "pullCount": 1,
+              "rewardSum": 0.35
+            },
+            "stateBefore": {
+              "lastSelectedRound": null,
+              "meanReward": 0.0,
+              "pullCount": 0,
+              "rewardSum": 0.0
+            }
+          },
+          "note": "Bounded-value first session summary: Core targets (pragmatist, explorer) are moved and find the zero-commitment trial clear and appealing, but repeat logic is conditional on a wow-worthy free session, and competitor pressure is high due to low switching costs and skepticism about free session depth.; Bounded-value first session critic: Product boundary vague on what the 'guaranteed outcome' is, execution lacks specificity on how to deliver a fast, meaningful trial, and sandbox may overinterpret willingness to try as conversion intent.",
+          "signals": {
+            "risk": "Product boundary vague on what the 'guaranteed outcome' is, execution lacks specificity on how to deliver a fast, meaningful trial, and sandbox may overinterpret willingness to try as conversion intent.",
+            "riskLabels": {
+              "brand_risk": "watch",
+              "execution_risk": "serious",
+              "product_boundary_risk": "serious",
+              "risk_note": "Product boundary vague on what the 'guaranteed outcome' is, execution lacks specificity on how to deliver a fast, meaningful trial, and sandbox may overinterpret willingness to try as conversion intent.",
+              "self_deception_risk": "serious"
+            },
+            "strategyName": "Bounded-value first session",
+            "summary": "Core targets (pragmatist, explorer) are moved and find the zero-commitment trial clear and appealing, but repeat logic is conditional on a wow-worthy free session, and competitor pressure is high due to low switching costs and skepticism about free session depth.",
+            "summaryLabels": {
+              "competitor_resilience": "fragile",
+              "core_target_response": "moved",
+              "evidence_consistency": "mixed",
+              "repeat_logic": "conditional",
+              "signal_note": "Core targets (pragmatist, explorer) are moved and find the zero-commitment trial clear and appealing, but repeat logic is conditional on a wow-worthy free session, and competitor pressure is high due to low switching costs and skepticism about free session depth.",
+              "strategy_clarity": "clear",
+              "trial_momentum": "conditional"
+            }
+          }
+        },
+        "summary": "trial_value_entry recorded completed qualitative evidence.",
+        "type": "search_updated"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Keep the next validation question visible.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "evidence": {
+          "consumerFeedbackSummary": "Bounded-value first session / Value-constrained pragmatist / Normal comparison: attitude Willing to try, but guarded. I'm thinking 'I'll give it one shot, but I'm watching them like a hawk.'; pull Zero commitment for the first use. I don't have to risk money to see if it actually saves me time or helps me get something done.; rejection It still feels like an extra step. Even free, I have to invest my time to learn how to use it, and there's a small voice saying 'this is just a trick to get you hooked on something you never needed before'.; repeat Cautiously open. I would need the free result to be a 'wow, that saved me real hassle' moment.; competitor If a competitor offered a similar free session but with a clearer promise (e.g., 'solve this one specific task for free in 2 minutes'), I would compare the ease of that promise versus this one's general offer..\nBounded-value first session / Deal-triggered explorer / Normal comparison: attitude Willing to try — the offer is exactly the kind of safe excuse I need to satisfy my curiosity.; pull The zero-commitment first session with a guaranteed outcome. That directly lowers the 'what if it's a waste of time' fear.; rejection Skepticism that the free session is actually useful enough to judge fit — maybe it's too guided or simplified, and the real value is hidden behind the paywall.; repeat Cautiously open — if the free session genuinely delivers and feels valuable, I'd consider the low-cost follow-up.; competitor If a competitor offers a similarly low-risk trial with a better initial experience or a sweeter post-trial deal, I'll jump ship..\nBounded-value first session / Trust-first risk reducer / Normal comparison: attitude Willing to try, but with guarded optimism. I'll test the free session carefully before deciding on any payment.; pull The zero-commitment first session with a tangible result. That directly lowers my fear of wasting money or time on something that doesn't deliver.; rejection I worry the free session might be too limited or gimmicky—like the 'deliverable result' won't match what I actually need, and then the follow-up options might feel pushy or unclear.; repeat If the free session delivers exactly what it promised, I'd feel positive but still cautious about the next step.; competitor If a known competitor offers a similar free trial with stronger service history or clearer guarantees, I'd switch immediately..\nBounded-value first session / Convenience-first time saver / Normal comparison: attitude Willing to try, but only if I can do it now in under a minute.; pull Zero commitment to start. I don't have to weigh risk or search for reviews first—I just try it and get a real outcome in that one session.; rejection The 'time-limited' part nags at me. If the free session expires before I get to it, that’s a mental event I have to manage. Friction I didn’t ask for.; repeat Neutral but open. If the free session works, I'd want to repeat that same exact ease without having to hunt for it again.; competitor I'd switch instantly if a competitor offers the same zero-effort first result with even fewer steps, like no free session expiration pressure..\nBounded-value first session / Habit-anchored repeater / Normal comparison: attitude Willing to try if the entry is truly effortless, but I'm not excited—just open to testing if it's convenient.; pull Zero commitment for a first try that delivers something useful. That directly bypasses my usual 'why bother?' inertia.; rejection Even with a free session, it's still a break from my current routine. If the sign-up friction or learning curve feels like any effort, I might not even start.; repeat Skeptical but possible. If the free session delivers clearly better than my usual, I'd consider the low-cost follow-up, but I won't chase it.; competitor Extremely low. I'd need a very clear signal that my current product is getting worse or more expensive before I'd even look elsewhere..",
+          "critique": "Bounded-value first session: loopholes The strategy assumes a 'guaranteed outcome' without specifying what that outcome is, which lets the sandbox claim success for any trivial result while the consumer expects a meaningful deliverable. Must validate: Whether the free session delivers a specific, credible, and immediately useful outcome that matches the target personas' real task expectations (not just a generic output).; Whether removing or extending the time-limit reduces friction for time-savers without losing urgency for deal-triggered explorers.",
+          "feedbackSynthesis": "Bounded-value first session: A low-barrier, trust-building trial strategy that feels genuine in its zero-commitment promise but carries risk of being perceived as gimmicky or time-wasting if the free session lacks depth. Next focus: Test variations that make the free session outcome more specific and immediately credible; Explore removing or extending the time-limit to reduce friction for time savers; Design the follow-up low-commitment offer to feel like a natural next step, not a pushy upsell; Investigate competitor trial designs that could undercut this strategy's unique appeal"
+        },
+        "headline": "Round 1 completed",
+        "id": "live-mphuk4g3-0014-round_completed",
+        "round": 1,
+        "summary": "Does the bounded free session clearly demonstrate product fit and immediate value, or does it obscure the product's true utility and lead to high post-trial attrition?",
+        "type": "round_completed"
+      }
+    ],
+    "source": "live_archive"
+  },
+  "resume": {
+    "blockedReason": "",
+    "canContinue": true,
+    "canReplay": true,
+    "mode": "continue_from_completed_round",
+    "requiresFreshCredentials": true
+  },
+  "safeBoundary": {
+    "completedRoundCount": 1,
+    "completedRounds": [
+      1
+    ],
+    "latestSafeEventId": "live-mphuk4g3-0014-round_completed",
+    "partialEventsDropped": 0,
+    "safeBoundaryRule": "latest round_completed or run_completed event"
+  },
+  "sandboxCoreVersion": "marketing-sandbox-core/v1",
+  "schemaVersion": "marketing-sandbox-archive/v1",
+  "searchState": {
+    "completedRoundCount": 1,
+    "completedRounds": [
+      1
+    ],
+    "currentBestFamilyId": "trial_value_entry",
+    "currentBestStrategy": {
+      "eventId": "live-mphuk4g3-0005-strategy_proposed",
+      "familyFit": "Creates a bounded, low-cost first step that demonstrates value without forcing upfront commitment, directly addressing the 'first use feels too costly or too committal' barrier.",
+      "familyId": "trial_value_entry",
+      "intent": "By offering a risk-free, structured trial with clear immediate value (e.g., first interaction outcome), we lower the perceived cost of entry and allow users to self-validate fit, increasing conversion and reducing early abandonment.",
+      "round": 1,
+      "strategyName": "Bounded-value first session"
+    },
+    "familyStates": {
+      "trial_value_entry": {
+        "familyId": "trial_value_entry",
+        "lastSelectedRound": 1,
+        "latestRewardEventId": "live-mphuk4g3-0013-search_updated",
+        "latestStrategy": {
+          "eventId": "live-mphuk4g3-0005-strategy_proposed",
+          "familyFit": "Creates a bounded, low-cost first step that demonstrates value without forcing upfront commitment, directly addressing the 'first use feels too costly or too committal' barrier.",
+          "familyId": "trial_value_entry",
+          "intent": "By offering a risk-free, structured trial with clear immediate value (e.g., first interaction outcome), we lower the perceived cost of entry and allow users to self-validate fit, increasing conversion and reducing early abandonment.",
+          "round": 1,
+          "strategyName": "Bounded-value first session"
+        },
+        "meanReward": 0.35,
+        "pullCount": 1,
+        "rewardSum": 0.35
+      }
+    },
+    "metricBoundary": "Archived reward and UCB values are internal search trace, not purchase rates or market forecasts.",
+    "nextRoundIndex": 2,
+    "partialEventsDropped": 0,
+    "recoveryRule": "Only search_updated events before the latest safe round_completed or run_completed boundary are used for UCB recovery.",
+    "restoresUcbState": true,
+    "rewardHistory": [
+      {
+        "appliedCaps": [
+          "serious_product_boundary_risk"
+        ],
+        "eventId": "live-mphuk4g3-0013-search_updated",
+        "familyId": "trial_value_entry",
+        "mappingNote": "Internal sandbox search utility from qualitative summary and critic labels; it is not a market forecast.",
+        "order": 12,
+        "positiveComponents": {
+          "competitor_resilience": 0.075,
+          "core_target_response": 0.25,
+          "evidence_consistency": 0.05,
+          "repeat_logic": 0.075,
+          "strategy_clarity": 0.15,
+          "trial_momentum": 0.1
+        },
+        "positiveUtility": 0.7,
+        "reward": 0.35,
+        "riskComponents": {
+          "brand_risk": 0.04,
+          "execution_risk": 0.05,
+          "product_boundary_risk": 0.14,
+          "self_deception_risk": 0.08
+        },
+        "riskNote": "Product boundary vague on what the 'guaranteed outcome' is, execution lacks specificity on how to deliver a fast, meaningful trial, and sandbox may overinterpret willingness to try as conversion intent.",
+        "riskPenalty": 0.31,
+        "round": 1,
+        "strategyName": "Bounded-value first session",
+        "summaryNote": "Core targets (pragmatist, explorer) are moved and find the zero-commitment trial clear and appealing, but repeat logic is conditional on a wow-worthy free session, and competitor pressure is high due to low switching costs and skepticism about free session depth."
+      }
+    ],
+    "source": "completed_round_events",
+    "ucbStateIncludesCompletedRoundsOnly": true,
+    "usesUcb": true
+  },
+  "sessionSnapshot": {
+    "config": {
+      "actionCategories": [
+        "Positioning",
+        "Product",
+        "Price",
+        "Channel",
+        "Promotion",
+        "Retention"
+      ],
+      "personaIds": [
+        "value-pragmatist",
+        "deal-explorer",
+        "trust-first",
+        "convenience-saver",
+        "habit-repeat"
+      ],
+      "product": {
+        "brand": "可以辅助搜索营销策略",
+        "facts": "用llm来扮演消费者，和出决策的人。通过不停的反馈，调整以达到最佳的决策。",
+        "goal": "找出能被不同人群解释清楚、也经得住竞品压力的营销方向。",
+        "name": "营销沙盘"
+      },
+      "provider": {
+        "baseUrl": "https://api.deepseek.com",
+        "defaultModel": "deepseek-chat",
+        "id": "deepseek-compatible",
+        "models": {},
+        "useBackendDefaults": false
+      },
+      "scenarioId": "normal",
+      "search": {
+        "candidatesPerRound": 1,
+        "familyIds": [
+          "trial_value_entry",
+          "trust_risk_reduction",
+          "retention_habit_defense"
+        ],
+        "rounds": 3,
+        "useUcb": true
+      },
+      "source": "live"
+    },
+    "credentialSource": "session_key",
+    "sessionId": "live-mphuk4g3",
+    "sessionKeyPresent": true
+  },
+  "status": "auto_archived",
+  "stopReason": "api_disconnect_timeout",
+  "versionCompatibility": {
+    "canContinue": true,
+    "canReplay": true,
+    "eventContractVersion": "marketing-sandbox-web-events/v1",
+    "resumePolicy": "continue_from_completed_round",
+    "sandboxCoreVersion": "marketing-sandbox-core/v1",
+    "schemaVersion": "marketing-sandbox-archive/v1",
+    "status": "compatible"
+  }
+}

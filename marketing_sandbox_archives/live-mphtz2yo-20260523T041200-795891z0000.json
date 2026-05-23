@@ -1,0 +1,529 @@
+{
+  "archiveFormatVersion": 2,
+  "archiveId": "live-mphtz2yo-20260523T041200-795891z0000",
+  "createdAt": "2026-05-23T04:12:00.795891+00:00",
+  "errorMessage": "Live event stream ended before run_completed; last event was round_progress.",
+  "eventContractVersion": "marketing-sandbox-web-events/v1",
+  "label": "live-mphtz2yo",
+  "playback": {
+    "events": [
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Send the run into the scene.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Live sandbox run started",
+        "id": "live-mphtz2yo-0001-run_started",
+        "round": 0,
+        "summary": "The live sandbox run is being translated into web events.",
+        "type": "run_started"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Calling live agents...",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Round 1 is calling model agents",
+        "id": "live-mphtz2yo-0002-round_progress",
+        "progress": {
+          "candidateCount": 1,
+          "expectedModelCalls": 4,
+          "note": "Provider-check only verifies a light API path. A real round also needs Decision, Consumer, Feedback, and Critic outputs to pass the sandbox contracts.",
+          "personaCount": 1,
+          "stage": "model_calls"
+        },
+        "round": 1,
+        "summary": "Round 1 has started real model calls. This round expects about 4 provider calls before consumer bubbles, reward, and UCB updates can appear.",
+        "type": "round_progress"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Open the next strategy test.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Round 1 started",
+        "id": "live-mphtz2yo-0003-round_started",
+        "proposal": {
+          "candidateCount": 1,
+          "decisionNote": "Initial strategy: create a low-commitment trial entry that lets value-constrained pragmatists verify product fit without upfront cost or risk.",
+          "nextValidationQuestion": "Will the proposed trial offer be perceived as genuinely low‑commitment by value‑constrained pragmatists, or will hidden conditions undermine trust?"
+        },
+        "round": 1,
+        "summary": "Initial strategy: create a low-commitment trial entry that lets value-constrained pragmatists verify product fit without upfront cost or risk.",
+        "type": "round_started"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Test Trial value entry.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "family": {
+          "coreBarrier": "First use feels too costly or too committal.",
+          "expectedActionPatterns": [
+            "clear trial offer",
+            "bounded entry value",
+            "first-use friction reduction"
+          ],
+          "failureSignals": [
+            "promotion hides product fit",
+            "repeat reason disappears after trial"
+          ],
+          "guidance": "Use trial access and concrete value without turning every reason into a discount.",
+          "id": "trial_value_entry",
+          "name": "Trial value entry",
+          "note": "Create a bounded first step whose value can be understood.",
+          "selectionReason": "cold start family has no complete observation yet",
+          "state": "cold start"
+        },
+        "headline": "Strategy family selected",
+        "id": "live-mphtz2yo-0004-family_selected",
+        "internalSearch": {
+          "generationIntent": "cold_start",
+          "kind": "family_selection",
+          "metricBoundary": "UCB score is an internal family-search score, not a purchase rate or market forecast.",
+          "selectionReason": "cold start family has no complete observation yet",
+          "ucbScore": {
+            "display": "cold start infinity",
+            "value": null
+          }
+        },
+        "round": 1,
+        "summary": "cold start family has no complete observation yet",
+        "type": "family_selected"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Risk-Free Sampling",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "DecisionAgent proposed a strategy",
+        "id": "live-mphtz2yo-0005-strategy_proposed",
+        "proposal": {
+          "decisionNote": "Initial strategy: create a low-commitment trial entry that lets value-constrained pragmatists verify product fit without upfront cost or risk.",
+          "nextValidationQuestion": "Will the proposed trial offer be perceived as genuinely low‑commitment by value‑constrained pragmatists, or will hidden conditions undermine trust?"
+        },
+        "round": 1,
+        "strategy": {
+          "actions": [
+            {
+              "category": "Positioning",
+              "note": "Position the product as a low-risk trial option with clear, time‑bound terms",
+              "parameters": {},
+              "productClaims": [],
+              "reason": "Sets the expectation that the first use is a safe, bounded commitment, aligning with the pragmatist’s need for concrete proof."
+            }
+          ],
+          "familyFit": "Directly addresses the core barrier of first-use cost/commitment by offering a bounded first step whose value can be understood.",
+          "familyId": "trial_value_entry",
+          "intent": "A no-cost trial period will reduce perceived risk and allow the pragmatist to assess fit before purchase, lowering the entry barrier.",
+          "name": "Risk-Free Sampling",
+          "targets": [
+            "Value-constrained pragmatists who seek functional proof before paying"
+          ],
+          "tradeoffs": [
+            "Delays initial revenue; requires short-term cost of trial units",
+            "Trial users may not convert if product fails to demonstrate clear value"
+          ]
+        },
+        "summary": "A no-cost trial period will reduce perceived risk and allow the pragmatist to assess fit before purchase, lowering the entry barrier.",
+        "type": "strategy_proposed"
+      },
+      {
+        "actorId": "consumer-value-constrained-pragmatist",
+        "actorRole": "consumer",
+        "actor_name": "Value-constrained pragmatist",
+        "bubble": "The no-cost trial removes the biggest hurdle—feeling like I'm throwing away money on something that might not work. It lets me verify the value before I pay a cent.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "feedback": {
+          "advocacy": {
+            "friendDescription": "It's a product you can test for a while without paying, and if it works for your regular needs, it's decent value. Just make sure you cancel on time.",
+            "recommendationFeeling": "I'd recommend it only if the trial actually convinced me and I feel confident a friend like me wouldn't get burned.",
+            "sharingFeeling": "I'd probably mention it casually—not go out of my way—but say 'worth a try since it's free for a while'."
+          },
+          "barrier": "I'm still cautious about hidden terms—like if I forget to cancel and get charged automatically, or if the trial is too short to really tell if it fits my routine. That feels like a trap.",
+          "behaviorDiagnosis": {
+            "actionFriction": "Any sign-up hassle, required payment info upfront, or unclear cancellation process.",
+            "dominantDriver": "Risk reduction—a free trial directly lowers the perceived loss of my limited money.",
+            "firstSignal": "The word 'free' or 'no-cost trial'",
+            "perceivedRisk": "That I'll get charged accidentally or the trial won't prove enough to justify paying later, leaving me back where I started.",
+            "referencePoint": "My current cheaper alternative or doing without—this has to beat that on convenience or usefulness without costing more in the long run."
+          },
+          "behaviorNotes": [
+            "Behavioral prior #1 (attention to visible cues) mattered: the 'free trial' was the first thing I noticed.",
+            "Behavioral prior #4 (perceived loss/risk outweighs benefit) mattered strongly: fear of hidden charges and wasted time dominated my hesitation.",
+            "Behavioral prior #5 (immediate friction) mattered: sign-up hassle and unclear cancellation could kill interest.",
+            "Behavioral prior #6 (social influence) did not clearly matter in this scenario—reviews weren't mentioned as a main cue here."
+          ],
+          "competitor": "If a cheaper or simpler substitute works just as well, I'd leave without much thought—especially if they also offer a trial or lower upfront cost.",
+          "competitorReaction": {
+            "likelyShift": "If a cheaper or simpler substitute works just as well, I'd leave without much thought—especially if they also offer a trial or lower upfront cost.",
+            "reason": "I'm not loyal; I'm practical. The trial gives me a reason to try this brand, but a competitor with less hassle or lower lifetime cost wins every time.",
+            "retentionCondition": "The product has to prove itself clearly better during the trial—saving me time or money in a way my current option can't match."
+          },
+          "currentAttitude": "Interested but cautious; willing to try if the terms are clear and the trial period is long enough to test in my actual day-to-day.",
+          "firstImpression": "A free trial? That actually takes the sting out of trying something new. If it's really no cost upfront, I'm willing to give it a shot to see if it works for my daily needs without wasting money.",
+          "positioning": "This brand is positioning itself as a low-risk option for someone like me who doesn't want to gamble with their budget. It feels like they're confident enough in the product to let me prove it to myself before committing.",
+          "pull": "The no-cost trial removes the biggest hurdle—feeling like I'm throwing away money on something that might not work. It lets me verify the value before I pay a cent.",
+          "repeat": "Only if the product becomes a regular part of my routine without me having to think about it each time.",
+          "repeatPurchase": {
+            "condition": "It needs to solve a recurring need better than my current cheap routine, and the trial must show that it saves me time or hassle consistently.",
+            "feeling": "Only if the product becomes a regular part of my routine without me having to think about it each time.",
+            "habitOrInertia": "If the trial fits neatly into my existing habits, repeat purchase becomes automatic. But if I have to change my routine beyond the trial, inertia will pull me back to what I know."
+          },
+          "scenarioName": "Normal comparison",
+          "understoodOffer": "They're letting me try the product for a limited time at no charge, and I only pay if I decide it's worth keeping after the trial ends."
+        },
+        "headline": "Value-constrained pragmatist responded",
+        "id": "live-mphtz2yo-0006-consumer_feedback_ready",
+        "round": 1,
+        "scenarioName": "Normal comparison",
+        "strategyName": "Risk-Free Sampling",
+        "summary": "Interested but cautious; willing to try if the terms are clear and the trial period is long enough to test in my actual day-to-day.",
+        "type": "consumer_feedback_ready"
+      },
+      {
+        "actorId": "synthesizer",
+        "actorRole": "synthesizer",
+        "bubble": "Test the effect of ultra-clear cancellation terms and extended trial duration on conversion intent.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Feedback synthesis ready",
+        "id": "live-mphtz2yo-0007-feedback_summary_ready",
+        "round": 1,
+        "strategyName": "Risk-Free Sampling",
+        "strategyTestIndex": 1,
+        "summary": "A cautious invitation that lowers the door threshold but raises the guardrails: the trial is the draw, but fine print could undo it.",
+        "synthesis": {
+          "competitor": "Fragile: if a cheaper or simpler substitute also offers a trial or lower upfront cost, this persona leaves without hesitation. No brand lock-in is established.",
+          "missingEvidence": [
+            "Whether the trial actually leads to sustained usage after the free period ends.",
+            "How the persona reacts to a trial that is not free but offers a money-back guarantee instead.",
+            "Whether social proof or reviews could boost credibility enough to offset the fear of hidden charges."
+          ],
+          "moved": "Value-constrained pragmatists who prioritize functional proof before spending",
+          "next": "Test the effect of ultra-clear cancellation terms and extended trial duration on conversion intent.",
+          "repeat": "Conditional at best: repeat purchase depends on the product embedding into daily routine with zero ongoing friction. The trial alone does not build loyalty.",
+          "scenarioNames": [
+            "Normal comparison"
+          ],
+          "searchSignals": {
+            "competitor_resilience": "fragile",
+            "core_target_response": "mixed",
+            "evidence_consistency": "mixed",
+            "repeat_logic": "conditional",
+            "signal_note": "The trial pulls the persona closer but cancellation fear and lack of routine anchor create strong conditionality; competitor substitution risk is high.",
+            "strategy_clarity": "partial",
+            "trial_momentum": "conditional"
+          },
+          "strongestEvidence": [
+            "The no-cost trial directly addresses the core risk of wasting money—the biggest hurdle for this persona.",
+            "Interest is real but conditional on clear, non-trap terms and a trial long enough for daily routine testing."
+          ],
+          "tags": [
+            "trust-sensitive",
+            "short-term trial",
+            "fear-of-trap",
+            "routine-dependent loyalty",
+            "low switching cost"
+          ],
+          "unmoved": "Pragmatists with strong prior experience of subscription traps or short trials",
+          "weakestPoints": [
+            "Fear of hidden charges and automatic billing is nearly as strong as the appeal of free—cancellation friction could kill conversion.",
+            "The trial does not automatically create a repeat-purchase anchor; it must become a thoughtless routine habit."
+          ]
+        },
+        "type": "feedback_summary_ready"
+      },
+      {
+        "actorId": "critic",
+        "actorRole": "critic",
+        "bubble": "Test whether ultra-clear cancellation terms and extended trial duration significantly improve conversion intent beyond the baseline free-trial offer.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "critique": {
+          "boundary": "No product claims are used, but if the trial unit fails to perform in the user's actual day-to-day context, the trial will backfire and reinforce the perception that the product is not worth paying for.",
+          "brandRisks": [
+            "Brand facts are missing; any ambiguity or poor cancellation experience (e.g., fine print, hidden fees) could brand the product as untrustworthy, directly contradicting the low-risk positioning.",
+            "If the trial duration is too short, the brand may be perceived as gimmicky or impatient, alienating the cautious pragmatist."
+          ],
+          "evidenceUsed": [
+            "Consumer feedback: 'strongest rejection' and 'perceived risk' indicate fear of hidden charges and automatic billing nearly as strong as the trial's draw.",
+            "Feedback summary: 'weakest points' note cancellation friction could kill conversion and trial does not automatically create repeat-purchase anchor.",
+            "Feedback summary: 'not moved' segment includes those with prior subscription trap experience or who already have a cheaper/simpler substitute.",
+            "Feedback summary: 'missing evidence' highlights uncertainty about sustained usage and alternative trial structures."
+          ],
+          "execution": [
+            "Cancellation friction (e.g., requiring a phone call, multiple clicks, or obscure opt-out) could kill conversion and generate negative word-of-mouth, especially among persona segments wary of subscription traps.",
+            "No execution boundaries supplied; operational costs of producing and shipping trial units are not addressed, nor is the logistics of tracking trial-to-purchase behavior and routine formation."
+          ],
+          "mainRisk": "The strategy assumes a free trial lowers the entry barrier, but feedback shows fear of hidden charges and automatic billing is nearly as strong as the appeal of free, meaning the trial itself may create a new psychological barrier for the target persona.",
+          "mustValidateNext": [
+            "Test whether ultra-clear cancellation terms and extended trial duration significantly improve conversion intent beyond the baseline free-trial offer.",
+            "Validate whether offering a money-back guarantee instead of a free trial generates different adoption and conversion patterns for this persona.",
+            "Investigate whether showing a visible 'trial success signal' (e.g., milestones or use-count) helps the product become a thoughtless routine habit."
+          ],
+          "next": "Test whether ultra-clear cancellation terms and extended trial duration significantly improve conversion intent beyond the baseline free-trial offer.",
+          "productBoundaryRisks": [
+            "No product claims are used, but if the trial unit fails to perform in the user's actual day-to-day context, the trial will backfire and reinforce the perception that the product is not worth paying for.",
+            "The product boundary (核心能力、不可越界的产品边界和可验证证据) is unspecified, so it is unknown if the trial version can deliver the functional proof pragmatists demand without sacrificing core features."
+          ],
+          "searchRiskSignals": {
+            "brand_risk": "watch",
+            "execution_risk": "watch",
+            "product_boundary_risk": "watch",
+            "risk_note": "Product boundary risk is watch because trial performance depends on unspecified product boundaries; brand risk is watch because poor cancellation terms could damage trust; execution risk is watch because operational costs and friction are unaddressed; self-deception risk is serious because the sandbox may overestimate the trial's appeal while underweighting the persona's real fears and competitor alternatives.",
+            "self_deception_risk": "serious"
+          },
+          "selfDeception": [
+            "The sandbox may flatter itself by focusing on the trial's appeal while downplaying how strongly the persona rejects hidden charges and automatic billing, treating fine-print fear as a minor detail rather than a core adoption blocker.",
+            "May assume that 'no-cost trial' automatically differentiates the product, ignoring that competitors also offer trials or lower upfront costs and that the persona would 'leave without much thought' for a simpler substitute."
+          ],
+          "unrealisticAssumptions": [
+            "Assumes pragmatists will convert simply because the trial is free, ignoring that they need the product to become a thoughtless routine habit and that competitors with cheaper/simpler substitutes or their own trials can easily pull them away.",
+            "Assumes a trial period is sufficient to prove value and generate repeat usage, but no evidence exists that the trial actually leads to sustained usage after the free period ends."
+          ],
+          "unresolvedQuestions": [
+            "Does the trial actually lead to sustained usage after the free period ends?",
+            "How do pragmatists respond to a money-back guarantee compared to a free trial?",
+            "Can social proof or reviews offset the fear of hidden charges enough to make the trial safer in the persona's eyes?"
+          ]
+        },
+        "headline": "Critic review ready",
+        "id": "live-mphtz2yo-0008-critique_ready",
+        "round": 1,
+        "strategyName": "Risk-Free Sampling",
+        "strategyTestIndex": 1,
+        "summary": "The strategy assumes a free trial lowers the entry barrier, but feedback shows fear of hidden charges and automatic billing is nearly as strong as the appeal of free, meaning the trial itself may create a new psychological barrier for the target persona.",
+        "type": "critique_ready"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Keep the family memory qualitative.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "headline": "Search memory updated",
+        "id": "live-mphtz2yo-0009-search_updated",
+        "round": 1,
+        "search": {
+          "families": [
+            {
+              "id": "trial_value_entry",
+              "label": "qualitative memory updated",
+              "tone": "active"
+            }
+          ],
+          "internalMetrics": {
+            "appliedCaps": [],
+            "familyId": "trial_value_entry",
+            "mappingNote": "Internal sandbox search utility from qualitative summary and critic labels; it is not a market forecast.",
+            "metricBoundary": "Reward, mean reward, and UCB-related values are internal search utility signals, not market outcomes.",
+            "positiveComponents": {
+              "competitor_resilience": 0.075,
+              "core_target_response": 0.125,
+              "evidence_consistency": 0.05,
+              "repeat_logic": 0.075,
+              "strategy_clarity": 0.075,
+              "trial_momentum": 0.1
+            },
+            "positiveUtility": 0.5,
+            "reward": 0.285,
+            "riskComponents": {
+              "brand_risk": 0.04,
+              "execution_risk": 0.025,
+              "product_boundary_risk": 0.07,
+              "self_deception_risk": 0.08
+            },
+            "riskPenalty": 0.21500000000000002,
+            "stateAfter": {
+              "lastSelectedRound": 1,
+              "meanReward": 0.285,
+              "pullCount": 1,
+              "rewardSum": 0.285
+            },
+            "stateBefore": {
+              "lastSelectedRound": null,
+              "meanReward": 0.0,
+              "pullCount": 0,
+              "rewardSum": 0.0
+            }
+          },
+          "note": "Risk-Free Sampling summary: The trial pulls the persona closer but cancellation fear and lack of routine anchor create strong conditionality; competitor substitution risk is high.; Risk-Free Sampling critic: Product boundary risk is watch because trial performance depends on unspecified product boundaries; brand risk is watch because poor cancellation terms could damage trust; execution risk is watch because operational costs and friction are unaddressed; self-deception risk is serious because the sandbox may overestimate the trial's appeal while underweighting the persona's real fears and competitor alternatives.",
+          "signals": {
+            "risk": "Product boundary risk is watch because trial performance depends on unspecified product boundaries; brand risk is watch because poor cancellation terms could damage trust; execution risk is watch because operational costs and friction are unaddressed; self-deception risk is serious because the sandbox may overestimate the trial's appeal while underweighting the persona's real fears and competitor alternatives.",
+            "riskLabels": {
+              "brand_risk": "watch",
+              "execution_risk": "watch",
+              "product_boundary_risk": "watch",
+              "risk_note": "Product boundary risk is watch because trial performance depends on unspecified product boundaries; brand risk is watch because poor cancellation terms could damage trust; execution risk is watch because operational costs and friction are unaddressed; self-deception risk is serious because the sandbox may overestimate the trial's appeal while underweighting the persona's real fears and competitor alternatives.",
+              "self_deception_risk": "serious"
+            },
+            "strategyName": "Risk-Free Sampling",
+            "summary": "The trial pulls the persona closer but cancellation fear and lack of routine anchor create strong conditionality; competitor substitution risk is high.",
+            "summaryLabels": {
+              "competitor_resilience": "fragile",
+              "core_target_response": "mixed",
+              "evidence_consistency": "mixed",
+              "repeat_logic": "conditional",
+              "signal_note": "The trial pulls the persona closer but cancellation fear and lack of routine anchor create strong conditionality; competitor substitution risk is high.",
+              "strategy_clarity": "partial",
+              "trial_momentum": "conditional"
+            }
+          }
+        },
+        "summary": "trial_value_entry recorded completed qualitative evidence.",
+        "type": "search_updated"
+      },
+      {
+        "actorId": "decision",
+        "actorRole": "decision",
+        "bubble": "Keep the next validation question visible.",
+        "contractVersion": "marketing-sandbox-web-events/v1",
+        "evidence": {
+          "consumerFeedbackSummary": "Risk-Free Sampling / Value-constrained pragmatist / Normal comparison: attitude Interested but cautious; willing to try if the terms are clear and the trial period is long enough to test in my actual day-to-day.; pull The no-cost trial removes the biggest hurdle—feeling like I'm throwing away money on something that might not work. It lets me verify the value before I pay a cent.; rejection I'm still cautious about hidden terms—like if I forget to cancel and get charged automatically, or if the trial is too short to really tell if it fits my routine. That feels like a trap.; repeat Only if the product becomes a regular part of my routine without me having to think about it each time.; competitor If a cheaper or simpler substitute works just as well, I'd leave without much thought—especially if they also offer a trial or lower upfront cost..",
+          "critique": "Risk-Free Sampling: loopholes The strategy assumes a free trial lowers the entry barrier, but feedback shows fear of hidden charges and automatic billing is nearly as strong as the appeal of free, meaning the trial itself may create a new psychological barrier for the target persona. Must validate: Test whether ultra-clear cancellation terms and extended trial duration significantly improve conversion intent beyond the baseline free-trial offer.; Validate whether offering a money-back guarantee instead of a free trial generates different adoption and conversion patterns for this persona.; Investigate whether showing a visible 'trial success signal' (e.g., milestones or use-count) helps the product become a thoughtless routine habit.",
+          "feedbackSynthesis": "Risk-Free Sampling: A cautious invitation that lowers the door threshold but raises the guardrails: the trial is the draw, but fine print could undo it. Next focus: Test the effect of ultra-clear cancellation terms and extended trial duration on conversion intent.; Explore whether adding a minimal but visible 'trial success signal' (e.g., a milestone or use-count) strengthens routine formation.; Investigate competitor trial offers as a direct comparison to see if differentiation is possible."
+        },
+        "headline": "Round 1 completed",
+        "id": "live-mphtz2yo-0010-round_completed",
+        "round": 1,
+        "summary": "Will the proposed trial offer be perceived as genuinely low‑commitment by value‑constrained pragmatists, or will hidden conditions undermine trust?",
+        "type": "round_completed"
+      }
+    ],
+    "source": "live_archive"
+  },
+  "resume": {
+    "blockedReason": "",
+    "canContinue": true,
+    "canReplay": true,
+    "mode": "continue_from_completed_round",
+    "requiresFreshCredentials": true
+  },
+  "safeBoundary": {
+    "completedRoundCount": 1,
+    "completedRounds": [
+      1
+    ],
+    "latestSafeEventId": "live-mphtz2yo-0010-round_completed",
+    "partialEventsDropped": 0,
+    "safeBoundaryRule": "latest round_completed or run_completed event"
+  },
+  "sandboxCoreVersion": "marketing-sandbox-core/v1",
+  "schemaVersion": "marketing-sandbox-archive/v1",
+  "searchState": {
+    "completedRoundCount": 1,
+    "completedRounds": [
+      1
+    ],
+    "currentBestFamilyId": "trial_value_entry",
+    "currentBestStrategy": {
+      "eventId": "live-mphtz2yo-0005-strategy_proposed",
+      "familyFit": "Directly addresses the core barrier of first-use cost/commitment by offering a bounded first step whose value can be understood.",
+      "familyId": "trial_value_entry",
+      "intent": "A no-cost trial period will reduce perceived risk and allow the pragmatist to assess fit before purchase, lowering the entry barrier.",
+      "round": 1,
+      "strategyName": "Risk-Free Sampling"
+    },
+    "familyStates": {
+      "trial_value_entry": {
+        "familyId": "trial_value_entry",
+        "lastSelectedRound": 1,
+        "latestRewardEventId": "live-mphtz2yo-0009-search_updated",
+        "latestStrategy": {
+          "eventId": "live-mphtz2yo-0005-strategy_proposed",
+          "familyFit": "Directly addresses the core barrier of first-use cost/commitment by offering a bounded first step whose value can be understood.",
+          "familyId": "trial_value_entry",
+          "intent": "A no-cost trial period will reduce perceived risk and allow the pragmatist to assess fit before purchase, lowering the entry barrier.",
+          "round": 1,
+          "strategyName": "Risk-Free Sampling"
+        },
+        "meanReward": 0.285,
+        "pullCount": 1,
+        "rewardSum": 0.285
+      }
+    },
+    "metricBoundary": "Archived reward and UCB values are internal search trace, not purchase rates or market forecasts.",
+    "nextRoundIndex": 2,
+    "partialEventsDropped": 0,
+    "recoveryRule": "Only search_updated events before the latest safe round_completed or run_completed boundary are used for UCB recovery.",
+    "restoresUcbState": true,
+    "rewardHistory": [
+      {
+        "appliedCaps": [],
+        "eventId": "live-mphtz2yo-0009-search_updated",
+        "familyId": "trial_value_entry",
+        "mappingNote": "Internal sandbox search utility from qualitative summary and critic labels; it is not a market forecast.",
+        "order": 8,
+        "positiveComponents": {
+          "competitor_resilience": 0.075,
+          "core_target_response": 0.125,
+          "evidence_consistency": 0.05,
+          "repeat_logic": 0.075,
+          "strategy_clarity": 0.075,
+          "trial_momentum": 0.1
+        },
+        "positiveUtility": 0.5,
+        "reward": 0.285,
+        "riskComponents": {
+          "brand_risk": 0.04,
+          "execution_risk": 0.025,
+          "product_boundary_risk": 0.07,
+          "self_deception_risk": 0.08
+        },
+        "riskNote": "Product boundary risk is watch because trial performance depends on unspecified product boundaries; brand risk is watch because poor cancellation terms could damage trust; execution risk is watch because operational costs and friction are unaddressed; self-deception risk is serious because the sandbox may overestimate the trial's appeal while underweighting the persona's real fears and competitor alternatives.",
+        "riskPenalty": 0.21500000000000002,
+        "round": 1,
+        "strategyName": "Risk-Free Sampling",
+        "summaryNote": "The trial pulls the persona closer but cancellation fear and lack of routine anchor create strong conditionality; competitor substitution risk is high."
+      }
+    ],
+    "source": "completed_round_events",
+    "ucbStateIncludesCompletedRoundsOnly": true,
+    "usesUcb": true
+  },
+  "sessionSnapshot": {
+    "config": {
+      "actionCategories": [
+        "Positioning"
+      ],
+      "personaIds": [
+        "value-pragmatist"
+      ],
+      "product": {
+        "brand": "品牌事实待补",
+        "facts": "核心能力、不可越界的产品边界和可验证证据。",
+        "goal": "找出能被不同人群解释清楚、也经得住竞品压力的营销方向。",
+        "name": "课堂新品"
+      },
+      "provider": {
+        "baseUrl": "https://api.deepseek.com",
+        "defaultModel": "deepseek-chat",
+        "id": "deepseek-compatible",
+        "models": {},
+        "useBackendDefaults": false
+      },
+      "scenarioId": "normal",
+      "search": {
+        "candidatesPerRound": 1,
+        "familyIds": [
+          "trial_value_entry"
+        ],
+        "rounds": 2,
+        "useUcb": true
+      },
+      "source": "live"
+    },
+    "credentialSource": "session_key",
+    "sessionId": "live-mphtz2yo",
+    "sessionKeyPresent": true
+  },
+  "status": "auto_archived",
+  "stopReason": "api_disconnect_timeout",
+  "versionCompatibility": {
+    "canContinue": true,
+    "canReplay": true,
+    "eventContractVersion": "marketing-sandbox-web-events/v1",
+    "resumePolicy": "continue_from_completed_round",
+    "sandboxCoreVersion": "marketing-sandbox-core/v1",
+    "schemaVersion": "marketing-sandbox-archive/v1",
+    "status": "compatible"
+  }
+}
